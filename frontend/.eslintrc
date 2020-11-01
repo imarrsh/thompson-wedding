@@ -16,12 +16,14 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
+    
   ],
   "rules": {
     "strict": 0,
     "@typescript-eslint/camelcase": "off",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "curly": ["warn", "always"],
+    "semi": ["warn", "always"]
   },
   "plugins": [
     "react"

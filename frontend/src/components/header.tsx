@@ -1,11 +1,11 @@
-import { Link } from "gatsby"
-import React, { FC } from "react"
+import { Link } from "gatsby";
+import React, { FC } from "react";
 
 type HeaderProps = {
-  siteTitle?: string;
+  siteTitle?: string
 }
 
-const Header: FC<HeaderProps> = ({ siteTitle = ``}) => (
+const Header: FC<HeaderProps> = ({ siteTitle = `` }) => (
   <header
     style={{
       background: `rebeccapurple`,
@@ -27,11 +27,11 @@ const Header: FC<HeaderProps> = ({ siteTitle = ``}) => (
             textDecoration: `none`,
           }}
         >
-          {siteTitle}
+          Kaila and Marshall
         </Link>
       </h1>
     </div>
   </header>
-)
+);
 
-export default Header
+export default Header;

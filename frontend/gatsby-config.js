@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Wedding of Kaila Judson & Marshall Thompson`,
+    description: `Kaila Judson and Marshall Thompson are getting married! This website outlines the details.`,
+    author: `Marshall Thompson`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -39,4 +39,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
