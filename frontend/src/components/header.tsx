@@ -1,17 +1,18 @@
 import { Link } from "gatsby";
 import React, { FC } from "react";
+import styled from 'styled-components';
+import { Navigation } from './navigation';
+
+const StyledHeader = styled.header`
+  background: tomato;
+`;
 
 type HeaderProps = {
   siteTitle?: string
 }
 
 const Header: FC<HeaderProps> = ({ siteTitle = `` }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <StyledHeader>
     <div
       style={{
         margin: `0 auto`,
@@ -31,7 +32,8 @@ const Header: FC<HeaderProps> = ({ siteTitle = `` }) => (
         </Link>
       </h1>
     </div>
-  </header>
+    <Navigation />
+  </StyledHeader>
 );
 
 export default Header;

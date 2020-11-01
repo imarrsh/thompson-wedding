@@ -6,13 +6,13 @@
  */
 
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet , HelmetProps } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 type SEOProps = {
   description?: string;
   lang?: string;
-  meta?: any[];
+  meta?: any[]; // if not JSX.IntrinsicElements['meta'], what then?
   title: string;
 }
 
