@@ -13,13 +13,7 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({ siteTitle = `` }) => (
   <StyledHeader>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+    <div className="container mx-auto px-4">
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
