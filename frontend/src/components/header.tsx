@@ -14,14 +14,8 @@ type HeaderProps = {
 const Header: FC<HeaderProps> = ({ siteTitle = `` }) => (
   <StyledHeader>
     <div className="container mx-auto px-4">
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+      <h1 className="font-headings text-6xl text-center">
+        <Link to="/">
           Kaila and Marshall
         </Link>
       </h1>

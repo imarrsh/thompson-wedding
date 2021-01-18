@@ -26,7 +26,7 @@ const Layout: FC = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="container mx-auto px-4">
+      <div>
         <main>{children}</main>
         <Footer />
       </div>
