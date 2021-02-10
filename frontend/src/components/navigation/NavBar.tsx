@@ -14,13 +14,16 @@ export const Navigation: FC<NavigationProps> = (props) => {
           <Link to="/our-story/">Our Story</Link>
         </li>
         <li>
+          <Link to="/wedding/">The Wedding</Link>
+        </li>
+        <li>
           <Link to="/wedding-party/">Wedding Party</Link>
         </li>
         <li>
           <Link to="/registry/">Registry</Link>
         </li>
         <li>
-          <Link to="/locations/">Locations</Link>
+          <Link to="/accommodations/">Accommodations</Link>
         </li>
       </ul>
     </div>
