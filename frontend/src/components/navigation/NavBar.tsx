@@ -1,29 +1,30 @@
 import React, { FC } from 'react';
-import { Link } from 'gatsby';
+import { GatsbyLinkProps, Link } from 'gatsby';
 
 type NavigationProps = {}
 
 export const Navigation: FC<NavigationProps> = (props) => {
+  const activeClass = "text-sageGreen underline";
   return(
     <div className="container px-4 mx-auto">
       <ul className="flex items-center justify-between list-none mx-auto">
         <li>
-          <Link to="/rsvp/">RSVP</Link>
+          <Link to="/rsvp/" activeClassName={activeClass}>RSVP</Link>
         </li>
         <li>
-          <Link to="/our-story/">Our Story</Link>
+          <Link to="/our-story/" activeClassName={activeClass}>Our Story</Link>
         </li>
         <li>
-          <Link to="/wedding/">The Wedding</Link>
+          <Link to="/wedding/" activeClassName={activeClass}>The Wedding</Link>
         </li>
         <li>
-          <Link to="/wedding-party/">Wedding Party</Link>
+          <Link to="/wedding-party/" activeClassName={activeClass}>Wedding Party</Link>
         </li>
         <li>
-          <Link to="/registry/">Registry</Link>
+          <Link to="/registry/" activeClassName={activeClass}>Registry</Link>
         </li>
         <li>
-          <Link to="/accommodations/">Accommodations</Link>
+          <Link to="/accommodations/" activeClassName={activeClass}>Accommodations</Link>
         </li>
       </ul>
     </div>
