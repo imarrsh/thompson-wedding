@@ -1,3 +1,4 @@
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const getRandomIntInRange = (min: number, max: number): number => {
@@ -17,7 +18,7 @@ type BlobImgProps = {
   }
 };
 
-export const BlobImg = styled.img<BlobImgProps>(({
+export const BlobImg = styled('div')<BlobImgProps>(({
   radii = {
     tl: getRandomBorderRadius(),
     tr: getRandomBorderRadius(),
@@ -31,5 +32,16 @@ export const BlobImg = styled.img<BlobImgProps>(({
     border-top-right-radius: ${radii.tr}px;
     border-bottom-left-radius: ${radii.br}px;
     border-bottom-right-radius: ${radii.bl}px;
+    overflow: hidden;
   `;
 });
+
+type BlobShapeProps = {
+  className: string;
+}
+
+export const BlobShape: FC<BlobShapeProps> = ({className, children}) => (
+  <BlobImg className={className}>
+    {children}
+  </BlobImg>
+);
