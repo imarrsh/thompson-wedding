@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { BlobImg } from "../images/BlobImg";
+import { BlobShape } from "../images/BlobImg";
+import { Image } from  "../image";
 import { 
   SecondaryHeading,
   Body1,
@@ -19,12 +20,14 @@ export const FeaturedPerson: FC<FeaturedPersonProps> = ({
     name = 'Name', 
     bio = 'A short bio', 
     role = 'Role', 
-    imgUrl = 'https://picsum.photos/300',
+    imgUrl,
   }
 }) => {
   return (
-    <figure className="flex flex-col justify-center px-8">
-      <BlobImg src={imgUrl} className="w-48 h-48 mx-auto" alt={`${name}, ${role}`}/>
+    <figure className="flex flex-col items-center px-8 md:px4 py-4">
+      <BlobShape className="w-48 h-48 md:w-64 md:h-64 shadow-xl">
+        <Image fileName={imgUrl} fallback="avatar.jpg" />
+      </BlobShape>
       <figcaption className="text-center mt-4">
         <SecondaryHeading>
           {name}, {role}
