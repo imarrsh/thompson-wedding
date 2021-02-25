@@ -17,15 +17,18 @@ type ImageProps = {
   /**
    * Name of an image file from the images directory
    */
-  fileName: string;
+  fileName?: string;
+  fallback?: string;
 }
 
 /**
  * Fetches an image file by file name
  */
 const Image: FC<ImageProps> = ({
-  fileName = ''
+  fileName = '',
+  fallback = 'avatar.jpg'
 }) => {
+
   const allImages = useStaticQuery(graphql`
     query {
       allFile {
@@ -42,10 +45,11 @@ const Image: FC<ImageProps> = ({
   `);
 
   const images = allImages.allFile.nodes.map((n: any) => n.childImageSharp.fluid);
-  const fluid = images.find((image: any) => image.originalName === fileName);
-  
+  let fluid = images.find((image: any) => image.originalName === fileName);
+
+  // didnt find it, try the fallback
   if (!fluid) {
-    return <div>Picture not found</div>;
+    fluid = images.find((image: any) => image.originalName === fallback);
   }
 
   return <Img fluid={fluid} />;
