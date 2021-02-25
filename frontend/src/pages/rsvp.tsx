@@ -7,7 +7,6 @@ import SEO from "../components/seo";
 const Rsvp: FC<PageProps<{}>> = () => (
   <Layout>
     <SEO title="RSVP" />
-    <h1 className="font-headings text-6xl text-center">RSVP</h1>
   </Layout>
 );
 

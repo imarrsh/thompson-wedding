@@ -7,7 +7,6 @@ import SEO from "../components/seo";
 const Accommodations : FC<PageProps<{}>> = () => (
   <Layout>
     <SEO title="Accommodations" />
-    <h1 className="font-headings text-6xl text-center">Accommodations</h1>
     <p className="font-sans">
       Add a list of accommodations for our out of town guests
     </p>

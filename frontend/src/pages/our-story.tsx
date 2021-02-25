@@ -8,7 +8,6 @@ import clsx from "clsx";
 const OurStory: FC<PageProps<{}>> = () => (
   <Layout>
     <SEO title="Our Story" />
-    <h1 className="font-headings text-6xl text-center my-8">Our Story</h1>
     <section className="container mx-auto px-4">
       <div className="flex">
         <div className="flex mx-auto">

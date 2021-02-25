@@ -7,7 +7,6 @@ import SEO from "../components/seo";
 const IndexPage: FC<PageProps<{}>> = () => (
   <Layout>
     <SEO title="The Wedding" />
-    <h1 className="font-headings text-6xl text-center">The Wedding</h1>
     <div className="container max-w-lg mx-auto">
       
       <h3 className="text-2xl mt-4">Things this page needs:</h3>

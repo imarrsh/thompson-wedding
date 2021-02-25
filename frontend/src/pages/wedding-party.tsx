@@ -11,7 +11,6 @@ const OurStory: FC<PageProps<{}>> = () => {
     <Layout>
       <SEO title="Wedding Party" />
       <div className="container mx-auto">
-        <h2 className="font-headings text-6xl text-center mt-4 mb-6">Wedding Party</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-auto gap-4">
           <div className="grid grid-cols-1">
             {bridesmaidsData.map(maid => 
