@@ -5,3 +5,7 @@ notes.md
 .DS_Store
 
 untracked_assets/
+# Local Netlify folder
+.netlify
+
+node_modules/
