@@ -1,7 +1,7 @@
 export type GiftRegisry = {
-  storeName: string;
-  registryUrl: string;
-  logo?: string;
+  name: string;
+  url: string;
+  img?: string;
 };
 
 export type FeaturedPerson = {
