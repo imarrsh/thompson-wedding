@@ -1,5 +1,11 @@
 import FeaturedPerson from './FeaturedPerson';
-export { FeaturedPerson };
-
 import Registry from './Registry';
-export { Registry };
+import Location from './Location';
+import Event from './Event';
+
+export { 
+  FeaturedPerson, 
+  Registry, 
+  Location, 
+  Event 
+};

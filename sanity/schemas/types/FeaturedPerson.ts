@@ -39,7 +39,7 @@ export default {
     {
       name: 'biography',
       title: 'Bio',
-      type: 'string',
+      type: 'text',
       description: `Write a short blurb about this person.`,
     },
     {

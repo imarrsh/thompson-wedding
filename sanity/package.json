@@ -21,10 +21,11 @@
     "@sanity/default-layout": "^2.4.3",
     "@sanity/default-login": "^2.2.6",
     "@sanity/desk-tool": "^2.4.3",
+    "@sanity/google-maps-input": "^2.6.0",
     "@sanity/vision": "^2.2.6",
+    "dotenv": "^8.2.0",
     "prop-types": "^15.6",
     "react": "^16.2",
     "react-dom": "^16.2"
-  },
-  "devDependencies": {}
+  }
 }
