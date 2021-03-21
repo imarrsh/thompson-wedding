@@ -55,7 +55,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "netlify:deploy": "netlify deploy -d ./public --prod",
+    "netlify:deploy": "gatsby clean && gatsby build && netlify deploy -d ./public --prod",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
