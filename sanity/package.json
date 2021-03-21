@@ -9,7 +9,8 @@
   "scripts": {
     "start": "sanity start",
     "test": "sanity check",
-    "deploy-gql": "sanity graphql deploy"
+    "deploy-gql": "sanity graphql deploy",
+    "deploy-studio": "sanity deploy"
   },
   "keywords": [
     "sanity"

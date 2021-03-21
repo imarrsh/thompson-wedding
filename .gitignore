@@ -11,3 +11,5 @@ untracked_assets/
 node_modules/
 
 .env
+
+dist/
