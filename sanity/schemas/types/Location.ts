@@ -1,4 +1,4 @@
-import { name } from './CommonFieldDefinitions';
+import { image, name } from './CommonFieldDefinitions';
 
 export default {
   name: 'location',
@@ -36,5 +36,21 @@ export default {
       title: 'Location (Geography)',
       type: 'geopoint',
     },
+    {
+      name: 'category',
+      type: 'string',
+      title: 'Location Category',
+      description: 'What type of location is this?',
+      options: {
+        list: [
+          {title: 'Venue', value: 'venue'},
+          {title: 'Lodging', value: 'lodging'},
+          {title: 'Restaurant', value: 'restaurant'},
+          {title: 'Retail', value: 'retail'},
+          {title: 'Place of Interest', value: 'poi'},
+        ]
+      }
+    },
+    image
   ]
 }
