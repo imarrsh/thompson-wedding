@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { PageProps, Link } from "gatsby";
+import { PageProps } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -13,7 +13,7 @@ const DesignSystem: FC<PageProps<{}>> = () => (
     <section className="container mx-auto pt-8 divide-y-2">
       <div className="py-8">
         <h1 className="mb-4">Typography</h1>
-        <MainHeading>Main Heading</MainHeading>
+        <MainHeading size="l">Main Heading</MainHeading>
         <SecondaryHeading>Secondary Heading</SecondaryHeading>
         <Body1>Body 1</Body1>
       </div>

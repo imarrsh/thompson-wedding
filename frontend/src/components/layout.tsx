@@ -25,9 +25,9 @@ const Layout: FC = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div>
-        <main>{children}</main>
+      <div className="flex flex-col min-h-screen">
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+        <main className="flex-grow">{children}</main>
         <Footer />
       </div>
     </>
