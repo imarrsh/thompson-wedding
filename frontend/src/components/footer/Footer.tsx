@@ -4,7 +4,7 @@ import { MainHeading, SecondaryHeading } from '../typography';
 
 export const Footer: FC = (props) => {
   return (
-    <footer className="bg-gray-700 text-gray-200">
+    <footer className="bg-gradient-to-br from-steelBlue-700 to-steelBlue-800 text-steelBlue-50">
       <div className="container py-4 mx-auto">
         <MainHeading size="m" className="mb-2">
           Kaila & Marshall
