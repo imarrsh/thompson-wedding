@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import Img, { GatsbyImageOptionalProps } from "gatsby-image";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -20,6 +20,7 @@ type ImageProps = {
   fileName?: string;
   fallback?: string;
   fluidImg?: any; // todo: is there a ts type for sanity/gatsby images?
+  gatsbyImgProps?: GatsbyImageOptionalProps;
 }
 
 /**
@@ -30,7 +31,6 @@ const Image: FC<ImageProps> = ({
   fallback = 'avatar.jpg',
   fluidImg
 }) => {
-  debugger;
   // if we already have a fluid img, perhaps from another query, return an Img with it.
   if (fluidImg) {
     return <Img fluid={fluidImg} />;
