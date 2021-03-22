@@ -1,32 +1,44 @@
 import React, { FC } from 'react';
-import { GatsbyLinkProps, Link } from 'gatsby';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import tw from 'twin.macro';
 
 type NavigationProps = {}
 
+// use styled-components + twin.macro since tailwind lacks support for psuedo elements 
+const NavLink = styled(Link)`
+  ${tw`pb-2 inline-block`}
+  &:after {
+    content: "";
+    ${tw`block border-b-4 transition-transform transform scale-x-0`}
+  }
+  &:hover:after, 
+  &[aria-current="page"]:after {
+    ${tw`scale-x-100 `}
+  }
+`;
+
 export const Navigation: FC<NavigationProps> = (props) => {
-  const activeClass = "text-sageGreen underline";
+  const activeClass = "text-sageGreen";
   return(
-    <div className="container px-4 mx-auto">
+    <nav className="container px-4 mx-auto">
       <ul className="flex items-center justify-between list-none mx-auto">
         <li>
-          <Link to="/rsvp/" activeClassName={activeClass}>RSVP</Link>
+          <NavLink to="/our-story/" activeClassName={activeClass}>Our Story</NavLink>
         </li>
         <li>
-          <Link to="/our-story/" activeClassName={activeClass}>Our Story</Link>
+          <NavLink to="/wedding/" activeClassName={activeClass}>The Wedding</NavLink>
         </li>
         <li>
-          <Link to="/wedding/" activeClassName={activeClass}>The Wedding</Link>
+          <NavLink to="/wedding-party/" activeClassName={activeClass}>Wedding Party</NavLink>
         </li>
         <li>
-          <Link to="/wedding-party/" activeClassName={activeClass}>Wedding Party</Link>
+          <NavLink to="/registry/" activeClassName={activeClass}>Registry</NavLink>
         </li>
         <li>
-          <Link to="/registry/" activeClassName={activeClass}>Registry</Link>
-        </li>
-        <li>
-          <Link to="/accommodations/" activeClassName={activeClass}>Accommodations</Link>
+          <NavLink to="/accommodations/" activeClassName={activeClass}>Accommodations</NavLink>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
