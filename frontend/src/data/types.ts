@@ -1,7 +1,7 @@
 export type GiftRegisry = {
   name: string;
   url: string;
-  img?: string;
+  image?: any;
 };
 
 export type FeaturedPerson = {

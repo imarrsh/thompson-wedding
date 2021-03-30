@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { FC } from 'react';
 
 export const Link: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({children, className, href, ...props}) => {
@@ -16,7 +17,7 @@ export const Link: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({childre
   }
 
   return <a 
-    className="text-sageGreen" 
+    className={clsx("text-sageGreen-500", className)} 
     href={href}
     {...props}
     target={target} 

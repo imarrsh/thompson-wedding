@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({ siteTitle = `` }) => {
         ['pt-2 pb-3']: isPastThreshold,
         ['py-4']: !isPastThreshold,
       })}>
-        <MainHeading className="text-sageGreen transition-all" size={pageYOffset < 15 ? 'l' : 'm'}>
+        <MainHeading className="text-sageGreen-500 transition-all" size={pageYOffset < 15 ? 'l' : 'm'}>
           <Link to="/">
             Kaila & Marshall
           </Link>

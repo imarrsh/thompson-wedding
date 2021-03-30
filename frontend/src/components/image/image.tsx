@@ -29,11 +29,12 @@ type ImageProps = {
 const Image: FC<ImageProps> = ({
   fileName = '',
   fallback = 'avatar.jpg',
-  fluidImg
+  fluidImg,
+  gatsbyImgProps = {}
 }) => {
   // if we already have a fluid img, perhaps from another query, return an Img with it.
   if (fluidImg) {
-    return <Img fluid={fluidImg} />;
+    return <Img fluid={fluidImg} {...gatsbyImgProps}/>;
   }
 
   const allImages = useStaticQuery(graphql`
@@ -59,7 +60,7 @@ const Image: FC<ImageProps> = ({
     fluid = images.find((image: any) => image.originalName === fallback);
   }
 
-  return <Img fluid={fluid} />;
+  return <Img fluid={fluid} {...gatsbyImgProps}/>;
 };
 
 export default Image;
