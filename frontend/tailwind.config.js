@@ -7,7 +7,18 @@ const headings = ['"Amatic SC"', ...fontfamily.serif];
 
 const colors = {
   ...defaultTheme.colors,
-  sageGreen: '#9CAF88',
+  sageGreen: {
+    50: '#f2f5f0',
+    100: '#d9e0d1',
+    200: '#c0ccb3',
+    300: '#a6b794',
+    400: '#8da376',
+    500: '#9CAF88',
+    600: '#73895c',
+    700: '#5a6b48',
+    800: '#404c33',
+    900: '#262e1f',
+  },
   steelBlue: {
     50: '#edf3f8',
     100: '#c8daea',
