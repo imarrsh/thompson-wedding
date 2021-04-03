@@ -1,0 +1,1 @@
+export { RegistryCard } from './RegistryCard';
