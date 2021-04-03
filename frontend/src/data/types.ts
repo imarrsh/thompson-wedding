@@ -10,3 +10,20 @@ export type FeaturedPerson = {
   bio: string;
   imgUrl: string;
 };
+
+export type Location = {
+  name: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  category: string;
+  image: any;
+  location: GeoPoint;
+}
+
+export type GeoPoint = {
+  lat: number;
+  lng: number;
+}
