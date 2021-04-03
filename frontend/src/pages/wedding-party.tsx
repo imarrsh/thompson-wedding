@@ -6,6 +6,7 @@ import SEO from "../components/seo";
 import { FeaturedPerson } from "../components/featured-person";
 import { hashCode } from "../utils";
 import { FeaturedPerson as FeaturedPersonProps } from "../data";
+import { LeafyCrownFlat } from "../components/icons/ornaments";
 
 interface WeddingPageProps {
   bridesmaids: {
@@ -29,7 +30,8 @@ const WeddingParty: FC<PageProps<WeddingPageProps>> = (props) => {
   return (
     <Layout>
       <SEO title="Wedding Party" />
-      <div className="container mx-auto">
+      <div className="container mx-auto py-4">
+        <LeafyCrownFlat className="h-24 w-24 mx-auto text-sageGreen-600 fill-current"/>
         <div className="grid grid-cols-1 sm:grid-cols-2 auto-rows-auto gap-4">
           <div className="grid grid-cols-1">
             {bridesmaids.map((maid) => 
