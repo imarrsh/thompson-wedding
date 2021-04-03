@@ -46,7 +46,10 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      translate: ['active', 'group-hover'],
+      scale: ['group-hover']
+    },
   },
   plugins: [],
 };
