@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-export const SquigglyUpsidedownHeart: FC<React.SVGAttributes<
+export const SquigglyExoticCat: FC<React.SVGAttributes<
   SVGElement
 >> = props => (
   <svg
