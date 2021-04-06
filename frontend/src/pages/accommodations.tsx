@@ -4,6 +4,7 @@ import { Location } from '../data/types';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SquigglyLinePeakUp } from "../components/icons/ornaments";
+import { AccommodationCard } from '../components/accommodation-card';
 
 interface AccomodationsPageProps {
   accommodations: {
@@ -21,28 +22,34 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
   return (
     <Layout>
       <SEO title="Accommodations" />
-      <div className="p-4">
+      <section className="p-4">
         <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
         <p className="font-sans">
-          Add a list of accommodations for our out of town guests
+          We know some of you may come from afar and may not be familiar with all the Augusta, Ga has to offer. 
+          We've arranged for block rates at some great hotels, but you're more than welcome to explore other offers in the area. 
+          We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
+          has quite a few gems to offer.
         </p>
         <ul className="mt-4">
-          {accommodations.map(a => <li key={a.name}>{a.name}</li>)}
+          {accommodations.map(a => 
+            <li key={a.name}>
+              <AccommodationCard accommodation={a}/>
+            </li>
+          )}
         </ul>
-      </div>
+      </section>
     </Layout>
   );
 };
 
 export default Accommodations;
 
-// todo - maybe this can be a dynamic query
 export const query = graphql`
 query LocationAccomodationsQuery {
   accommodations: allSanityLocation(
     filter: { 
       category: {
-        in: ["lodging"]
+        nin: ["venue"] # grab everything but the venue 
       }
     }
   ) {
