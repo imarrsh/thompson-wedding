@@ -4,7 +4,7 @@ import { Location } from '../data/types';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SquigglyLinePeakUp } from "../components/icons/ornaments";
-import { AccommodationCard } from '../components/accommodation-card';
+import { AccommodationSection } from "../components/accommodation-card/AccommodationSection";
 
 interface AccomodationsPageProps {
   accommodations: {
@@ -19,6 +19,8 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
     }
   } = props;
 
+  const lodgingEntries = accommodations.filter(a => Object.is(a.category, 'lodging'));
+
   return (
     <Layout>
       <SEO title="Accommodations" />
@@ -30,13 +32,7 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
           We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
           has quite a few gems to offer.
         </p>
-        <ul className="mt-4">
-          {accommodations.map(a => 
-            <li key={a.name}>
-              <AccommodationCard accommodation={a}/>
-            </li>
-          )}
-        </ul>
+        <AccommodationSection list={lodgingEntries} category="Lodging" />
       </section>
     </Layout>
   );
@@ -65,7 +61,13 @@ query LocationAccomodationsQuery {
         lng
       }
       category
-      # image
+      image {
+          asset {
+            fluid(maxWidth: 1200) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
     }
   }
 }`;

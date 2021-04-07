@@ -17,7 +17,7 @@ export const Link: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({childre
   }
 
   return <a 
-    className={clsx("text-sageGreen-500", className)} 
+    className={clsx(className)} 
     href={href}
     {...props}
     target={target} 

@@ -21,6 +21,7 @@ export type Location = {
   category: string;
   image: any;
   location: GeoPoint;
+  url?: string;
 }
 
 export type GeoPoint = {
