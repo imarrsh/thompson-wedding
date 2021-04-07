@@ -1,4 +1,4 @@
-import { name, image } from './CommonFieldDefinitions'
+import { name, image , url} from './CommonFieldDefinitions'
 
 export default {
   name: 'registry',
@@ -6,11 +6,7 @@ export default {
   type: 'document',
   fields: [
     name,
-    {
-      type: 'url',
-      name: 'url',
-      title: "Url"
-    },
+    url,
     image,
   ]
 }

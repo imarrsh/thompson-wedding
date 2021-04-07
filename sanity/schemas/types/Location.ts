@@ -1,4 +1,4 @@
-import { image, name } from './CommonFieldDefinitions';
+import { image, name, url } from './CommonFieldDefinitions';
 
 export default {
   name: 'location',
@@ -51,6 +51,7 @@ export default {
         ]
       }
     },
-    image
+    image,
+    url,
   ]
 }

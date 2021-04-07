@@ -4,11 +4,17 @@ export const name = {
   type: 'string'
 };
 
-export const image ={
+export const image = {
   name: 'image',
   title: 'Image',
   type: 'image',
   options: {
     storeOriginalFilename: true
   }
+}
+
+export const url = {
+  type: 'url',
+  name: 'url',
+  title: "Url"
 }
