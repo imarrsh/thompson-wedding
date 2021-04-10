@@ -1,8 +1,10 @@
+import BlockContent from '@sanity/block-content-to-react';
 import React, { FC } from 'react';
 import { Location } from '../../data';
 import { Image } from '../image';
 import { Link } from '../navigation';
 import { TertiaryHeading } from '../typography';
+import PortableText from 'react-portable-text';
 
 type AccommodationCardProps = {
   accommodation: Location;
@@ -10,15 +12,26 @@ type AccommodationCardProps = {
 
 function getMapHref(lat: number, lng: number) {
   // try to use iOS maps
-  if (["iPhone", "iPod", "iPad"].some((platformStr) => navigator.platform.includes(platformStr))) {
+  if (isNavigatorIOS()) {
     return `maps://maps.google.com/maps?daddr=${lat},${lng}&amp;ll=`;
   } else {
     // send to google
     return `https://maps.google.com/maps?daddr=${lat},${lng}&amp;ll=`;
   }
+
+  function isNavigatorIOS() {
+    return typeof navigator !== 'undefined' && 
+      ["iPhone", "iPod", "iPad"].some((platformStr) => navigator.platform.includes(platformStr));
+  }
 }
 
 export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}) => {
+  // todo: this is a workaround since sanity doesnt return markDefs for a block yet
+  if (a?.rtDescription?.length) {
+    a.rtDescription.map((block: any) => {
+      return block.markDefs = [];
+    });
+  }
   // card
   // - image
   // - name
@@ -49,6 +62,17 @@ export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}
             {`${a.city}, ${a.state} ${a.zipcode}`}<br/>
           </address>
         </Link>
+        {a.category === 'lodging' &&
+          <Link className="text-sageGreen-500" href={a.url || '#'}>
+            Click to book now - rooms are limited
+          </Link>
+        }
+        {
+          a.rtDescription !== null 
+            // @ts-expect-error - defaultSerializers isn't expected on BlockContent
+            ? <BlockContent blocks={a.rtDescription} serializers={BlockContent.defaultSerializers}/>
+            : null
+        }
       </figcaption>
     </article>
   );

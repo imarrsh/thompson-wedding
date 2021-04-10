@@ -23,7 +23,8 @@
     "@typescript-eslint/camelcase": "off",
     "react/prop-types": 0,
     "curly": ["warn", "always"],
-    "semi": ["warn", "always"]
+    "semi": ["warn", "always"],
+    "no-use-before-define":"warn"
   },
   "plugins": [
     "react"

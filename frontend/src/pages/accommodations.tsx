@@ -56,6 +56,19 @@ query LocationAccomodationsQuery {
       city
       state
       zipcode
+      url
+      rtDescription {
+        _type
+        _key
+        list
+        style
+        children {
+          _key
+          _type
+          text
+          marks
+        }
+      }
       location {
         lat
         lng

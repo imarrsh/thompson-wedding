@@ -53,5 +53,11 @@ export default {
     },
     image,
     url,
+    {
+      title: 'Description (Rich Text)', 
+      name: 'rtDescription',
+      type: 'array', 
+      of: [{type: 'block'}]
+    }
   ]
 }
