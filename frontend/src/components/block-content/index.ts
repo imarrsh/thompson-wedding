@@ -1,0 +1,1 @@
+export { StyledBlockContent } from './StyledBlockContent';

@@ -57,18 +57,7 @@ query LocationAccomodationsQuery {
       state
       zipcode
       url
-      rtDescription {
-        _type
-        _key
-        list
-        style
-        children {
-          _key
-          _type
-          text
-          marks
-        }
-      }
+      description: _rawRtDescription
       location {
         lat
         lng

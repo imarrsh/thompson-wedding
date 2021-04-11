@@ -22,7 +22,7 @@ export type Location = {
   image: any;
   location: GeoPoint;
   url?: string;
-  rtDescription: any; // PortableText
+  description: any; // PortableText!
 }
 
 export type GeoPoint = {

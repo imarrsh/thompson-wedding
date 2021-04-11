@@ -4,7 +4,7 @@ import { Location } from '../../data';
 import { Image } from '../image';
 import { Link } from '../navigation';
 import { TertiaryHeading } from '../typography';
-import PortableText from 'react-portable-text';
+import { StyledBlockContent } from '../block-content';
 
 type AccommodationCardProps = {
   accommodation: Location;
@@ -26,12 +26,7 @@ function getMapHref(lat: number, lng: number) {
 }
 
 export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}) => {
-  // todo: this is a workaround since sanity doesnt return markDefs for a block yet
-  if (a?.rtDescription?.length) {
-    a.rtDescription.map((block: any) => {
-      return block.markDefs = [];
-    });
-  }
+  
   // card
   // - image
   // - name
@@ -62,16 +57,15 @@ export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}
             {`${a.city}, ${a.state} ${a.zipcode}`}<br/>
           </address>
         </Link>
-        {a.category === 'lodging' &&
+        {/*a.category === 'lodging' && a.url &&
           <Link className="text-sageGreen-500" href={a.url || '#'}>
             Click to book now - rooms are limited
           </Link>
-        }
-        {
-          a.rtDescription !== null 
-            // @ts-expect-error - defaultSerializers isn't expected on BlockContent
-            ? <BlockContent blocks={a.rtDescription} serializers={BlockContent.defaultSerializers}/>
-            : null
+        */}
+        {a.description !== null 
+          // @ts-expect-error - defaultSerializers isn't expected on BlockContent
+          ? <StyledBlockContent blocks={a.description} serializers={BlockContent.defaultSerializers}/>
+          : null
         }
       </figcaption>
     </article>
