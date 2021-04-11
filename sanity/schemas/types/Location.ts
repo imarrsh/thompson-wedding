@@ -7,6 +7,22 @@ export default {
   fields: [
     name,
     {
+      name: 'category',
+      type: 'string',
+      title: 'Location Category',
+      description: 'What type of location is this?',
+      options: {
+        list: [
+          {title: 'Venue', value: 'venue'},
+          {title: 'Lodging', value: 'lodging'},
+          {title: 'Restaurant', value: 'restaurant'},
+          {title: 'Bars and Nightlife', value: 'bars_nightlife'},
+          {title: 'Retail', value: 'retail'},
+          {title: 'Place of Interest', value: 'poi'},
+        ]
+      }
+    },
+    {
       name: 'address1',
       title: 'Address Line 1',
       type: 'string',
@@ -36,28 +52,22 @@ export default {
       title: 'Location (Geography)',
       type: 'geopoint',
     },
-    {
-      name: 'category',
-      type: 'string',
-      title: 'Location Category',
-      description: 'What type of location is this?',
-      options: {
-        list: [
-          {title: 'Venue', value: 'venue'},
-          {title: 'Lodging', value: 'lodging'},
-          {title: 'Restaurant', value: 'restaurant'},
-          {title: 'Retail', value: 'retail'},
-          {title: 'Place of Interest', value: 'poi'},
-        ]
-      }
-    },
     image,
     url,
     {
-      title: 'Description (Rich Text)', 
+      title: 'Description (Rich Text)',
       name: 'rtDescription',
-      type: 'array', 
-      of: [{type: 'block'}]
+      type: 'array',
+      of: [
+        {type: 'block'}
+      ]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'category',
+      media: 'image',
+    }
+  },
 }
