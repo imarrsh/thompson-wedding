@@ -51,6 +51,14 @@ module.exports = {
         // token: process.env.MY_SANITY_TOKEN,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Amatic SC:400,700', 'Nunito Sans']
+        }
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
