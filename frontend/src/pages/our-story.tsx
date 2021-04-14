@@ -28,7 +28,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
         <section className="container mx-auto px-4">
           <div className="mx-auto">
             <div className="flex justify-center">
-              {images.map(image => 
+              {images.reverse().map(image => 
                 <figure 
                   className="rounded-full overflow-hidden w-36 h-36 md:w-64 md:h-64 first:mr-2 shadow-md" 
                   key={image.originalFilename}
