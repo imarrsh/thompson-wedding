@@ -64,12 +64,12 @@ query LocationAccomodationsQuery {
       }
       category
       image {
-          asset {
-            fluid(maxWidth: 1200) {
-              ...GatsbySanityImageFluid
-            }
+        asset {
+          fluid(maxWidth: 1200) {
+            ...GatsbySanityImageFluid
           }
         }
+      }
     }
   }
 }`;
