@@ -8,7 +8,8 @@ import {
   FeaturedPerson,
   Registry,
   Location,
-  Event
+  Event,
+  Album,
 } from './types';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -22,6 +23,7 @@ export default createSchema({
     FeaturedPerson, 
     Registry,
     Location, 
-    Event
+    Event,
+    Album
   ])
 });

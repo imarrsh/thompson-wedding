@@ -1,4 +1,4 @@
-import { name } from "./CommonFieldDefinitions";
+import { name, description } from "./CommonFieldDefinitions";
 
 export default {
   name: 'event',
@@ -30,11 +30,7 @@ export default {
       to: [{type: 'location'}],
       weak: true
     },
-    {
-      name: 'description',
-      type: 'text',
-      title: 'Description'
-    }
+    description
   ],
 
 }

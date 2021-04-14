@@ -18,3 +18,9 @@ export const url = {
   name: 'url',
   title: "Url"
 }
+
+export const description = {
+  name: 'description',
+  type: 'text',
+  title: 'Description'
+}
