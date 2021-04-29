@@ -3,6 +3,8 @@ import { graphql, PageProps } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SquigglyExoticCat } from "../components/icons/ornaments";
+import { Image } from '../components/image';
+import clsx from "clsx";
 
 const IndexPage: FC<PageProps<{}>> = () => (
   <Layout>
@@ -10,29 +12,72 @@ const IndexPage: FC<PageProps<{}>> = () => (
     <div className="p-4">
       <SquigglyExoticCat className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="container max-w-4xl mx-auto">
-        <p className="text-2xl text-center">
-          Saturday, October 9, 2021<br/>
-          5:00pm-11:00pm
-        </p>
         <h2 className="text-3xl text-center">Ceremony and Reception</h2>
-        <p className="text-center">
-          <strong>Perry's Landing</strong><br />
-          5380 Henderson Road<br />
-          Hephzibah, GA 30815
-        </p>
         <div>
-          <br/>
-          ...pics...
-          <br/><br/>
+          photos
         </div>
-        <article className="">
-          <h3 className="text-2xl text-center">Details</h3>
-          <ul>
-            <li>Join us for our ceremony and then good food, an open bar and dancing to follow.</li>
-            <li>Attire: Cocktail</li>
-            <li>Free Parking</li>
-            <li>Please use our wedding hashtag when posting pictures on social media: #toastingthethompsons</li>
-            <li>Perry's landing is an outdoor venue, but no worries on inclement weather as there will be access to a tent and barn.</li>
+        <CardBase>
+          <div className="flex">
+            <div className="flex-grow">
+              <p className="text-3xl">
+                Saturday, October 9, 2021<br/>
+                5:00 pm &ndash; 11:00 pm
+              </p>
+              <p className="text-gray-500 mt-4">
+                Perry's Landing<br />
+                5380 Henderson Road<br />
+                Hephzibah, GA 30815
+              </p>
+            </div>
+            <div>
+              <Image fileName="calendar.svg"/>
+            </div>
+          </div>
+          <p className="mt-4">
+            Join us for our ceremony followed by a cocktail hour and reception filled with good food, an open bar and dancing.
+          </p>
+        </CardBase>
+        <article>
+          <h3 className="text-6xl text-center font-script mt-8 mb-8">details</h3>
+          <ul className="grid grid-cols-2 gap-8">
+            <li>
+              <figure className="flex items-center w-16 h-16">
+                <Image fileName="attire.svg" />
+              </figure>
+              <figcaption>
+                <h3 className="text-xl mt-2">Attire: Cocktail</h3>
+                <p>Join us in our celebration by getting a little dressed up!</p>
+              </figcaption>
+            </li>
+            <li>
+              <figure className="flex items-center w-16 h-16">
+                <Image fileName="parking.svg"/>
+              </figure>
+              <figcaption>
+                <h3 className="text-xl mt-2">Free Parking</h3>
+                <p className="mt-2">Parking will be available to the right upon arriving to the&nbsp;venue.</p>
+              </figcaption>
+            </li>
+            <li>
+              <figure className="flex items-center w-16 h-16">
+                <Image fileName="hashtag.svg"/>
+              </figure>
+              <figcaption>
+                <h3 className="text-xl mt-2">Hashtag</h3>
+                <p className="mt-2">
+                  Please use our wedding hashtag when posting pictures on social media: <span className="text-steelBlue-400">#toastingthethompsons</span>
+                </p>
+              </figcaption>
+            </li>
+            <li>
+              <figure className="flex items-center w-16 h-16">
+                <Image fileName="weather.svg"/>
+              </figure>
+              <figcaption>
+                <h3 className="text-xl mt-2">Weather</h3>
+                <p className="mt-2">Perry's Landing is an outdoor venue, but no worries if there is inclement weather &mdash; there will be access to a tent and&nbsp;barn</p>
+              </figcaption>
+            </li>
           </ul>
         </article>
       </div>
@@ -41,6 +86,23 @@ const IndexPage: FC<PageProps<{}>> = () => (
 );
 
 export default IndexPage;
+
+type CardBaseProps = {
+  className?: string;
+}
+
+const CardBase: FC<CardBaseProps> = ({className, children}) => 
+  <article className={
+    clsx(
+      "shadow-lg", 
+      "rounded-md", 
+      "p-8",
+      "mt-16",
+      className
+    )}
+  >
+    {children}
+  </article>;
 
 // export const query = graphql`
 //   query WeddingPageQuery {

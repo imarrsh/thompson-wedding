@@ -42,23 +42,41 @@ const Image: FC<ImageProps> = ({
       allFile {
           nodes {
             childImageSharp {
-            fluid(maxWidth: 2000) {
-              originalName
-              ...GatsbyImageSharpFluid
-            }
+              fluid(maxWidth: 2000) {
+                originalName
+                ...GatsbyImageSharpFluid
+              }
           }
+          publicURL,
+          extension,
+          ext,
+          name
         }
       }
     }  
   `);
 
-  const images = allImages.allFile.nodes.map((n: any) => n.childImageSharp.fluid);
+  // naive shortcut to return an svg before attempting going thru images
+  if (fileName.endsWith('.svg')) {
+    const { publicURL, name } = allImages.allFile.nodes
+      .filter((n: any) => n.childImageSharp === null && n.extension === 'svg')
+      .find((n: any) => fileName === `${n.name}${n.ext}`);
+    
+    return <img src={publicURL} alt={name} />;
+  }
+
+  const images = allImages.allFile.nodes
+    .filter((n: any) => n.childImageSharp !== null)
+    .map((n: any) => n.childImageSharp.fluid);
+
   let fluid = images.find((image: any) => image.originalName === fileName);
 
   // didnt find it, try the fallback
   if (!fluid) {
     fluid = images.find((image: any) => image.originalName === fallback);
   }
+
+  
 
   return <Img fluid={fluid} {...gatsbyImgProps}/>;
 };

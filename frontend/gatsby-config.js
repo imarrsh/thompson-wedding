@@ -55,7 +55,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Amatic SC:400,700', 'Nunito Sans']
+          families: ['Amatic SC:400,700', 'Nunito Sans', 'Tangerine']
         }
       }
     },
