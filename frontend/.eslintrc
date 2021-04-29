@@ -16,15 +16,16 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
-    
   ],
   "rules": {
     "strict": 0,
-    "@typescript-eslint/camelcase": "off",
-    "react/prop-types": 0,
     "curly": ["warn", "always"],
     "semi": ["warn", "always"],
-    "no-use-before-define":"warn"
+    "no-use-before-define":"warn",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/prop-types": 0,
+    "react/no-unescaped-entities": "warn"
   },
   "plugins": [
     "react"
