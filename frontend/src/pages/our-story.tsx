@@ -8,7 +8,12 @@ import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
 
 type OurStoryPageProps = {
   album: {
-    images: any[]
+    images: { 
+      asset: { 
+        originalFilename: string;
+        fluid: any;
+      }
+    }[]
   }
 }
 
@@ -28,10 +33,12 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
         <section className="container mx-auto px-4">
           <div className="mx-auto">
             <div className="flex justify-center">
-              {images.reverse().map(image => 
+              {images.sort((a,b) => {
+                return a.asset.originalFilename.localeCompare(b.asset.originalFilename);
+              }).map(image => 
                 <figure 
                   className="rounded-full overflow-hidden w-36 h-36 md:w-64 md:h-64 first:mr-2 shadow-md" 
-                  key={image.originalFilename}
+                  key={image.asset.originalFilename}
                 >
                   <Image fluidImg={image.asset.fluid} />
                 </figure>
@@ -41,7 +48,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
           <article className="max-w-xl mx-auto">
             <h2 className="font-headings text-5xl text-center mt-6">It's a Match!</h2>
             <Paragraph>
-              It all began with an app. You know the one. A fateful spring day in 2014, Kaila and Marshall swiped right on each other. He offered some cheesy lines and she let him think they were clever. Eventually, they agreed to meet in person. A quick meeting at Panera Bread turned into 6 hours as they couldn’t stop talking. Neither seemed to want the night to end. Kaila called a friend on her way home, excited to talk about the guy she just met and the connection she felt.
+              It all began with an app. You know the one. A fateful spring day in 2014, Kaila and Marshall swiped right on each other. He offered some cheesy lines and she let him think they were clever. Eventually, they agreed to meet in person. A quick meeting at Panera Bread turned into 6 hours as they couldn’t stop talking. Neither seemed to want the night to end. Kaila called a friend on her way home, excited to talk about the guy she just met and the connection they seemed to share.
             </Paragraph>
             <Paragraph>
               By December 2014, they became inseparable. Since then Kaila and Marshall have shared many memories, countless laughs, and new beginnings together. In 2018 they moved to Atlanta, GA for Marshall’s job and soon after adopted two kittens, Oliver and Amelia. They began a new life together in Atlanta, Kaila started a new career, and they both survived a pandemic. 
