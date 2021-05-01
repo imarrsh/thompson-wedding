@@ -1,20 +1,25 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
+import { TypographyBase } from './TypographyBase';
 
 type HeadingProps = {
   className?: string;
+  textSize?: string
 }
 
 export const TertiaryHeading: FC<HeadingProps> = ({
   children,
+  textSize = "text-l",
   className = ''
 }) => {
 
-  return <h3 className={
+  return <TypographyBase element="h3" classes={
     clsx(
-      "text-l",
+      textSize,
       "uppercase",
       className
     )
-  }>{children}</h3>;
+  }>
+    {children}
+  </TypographyBase>;
 };

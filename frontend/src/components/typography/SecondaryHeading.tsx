@@ -1,4 +1,7 @@
 import React, { FC } from 'react';
+import { TypographyBase } from './TypographyBase';
 
 export const SecondaryHeading: FC = ({children}) =>
-  <h2 className="font-headings text-4xl text-sageGreen-500">{children}</h2>;
+  <TypographyBase element="h2" fontFamilyStyle="sans" classes="text-4xl text-sageGreen-500">
+    {children}
+  </TypographyBase>;

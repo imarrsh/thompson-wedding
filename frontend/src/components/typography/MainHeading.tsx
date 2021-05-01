@@ -1,5 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react';
 import clsx from 'clsx';
+import { TypographyBase } from './TypographyBase';
 
 type MainHeadingTypes = {
   className?: string;
@@ -25,12 +26,11 @@ export const MainHeading: FC<MainHeadingTypes> = ({
   const classNames = className.split(' ');
 
   return (
-    <h1 className={clsx(
-      'font-headings', 
+    <TypographyBase element="h1" fontFamilyStyle="heading" classes={clsx(
       classes.text(size),
       ...classNames
     )}>
       {children}
-    </h1>
+    </TypographyBase>
   );
 };

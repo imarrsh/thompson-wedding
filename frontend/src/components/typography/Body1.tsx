@@ -1,4 +1,7 @@
 import React, { FC } from 'react';
+import { TypographyBase } from './TypographyBase';
 
 export const Body1: FC = ({children}) => 
-  <p className="font-sans">{children}</p>;
+  <TypographyBase element="p" fontFamilyStyle="sans">
+    {children}
+  </TypographyBase>;
