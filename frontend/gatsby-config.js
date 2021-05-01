@@ -55,8 +55,13 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Amatic SC:400,700', 'Nunito Sans', 'Tangerine']
+          families: ['Charmonman', 'Nunito Sans', 'Tangerine']
         }
+        /*
+          Charmonman
+          Sue Ellen Francisco 
+          'Amatic SC:400,700',
+        */
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

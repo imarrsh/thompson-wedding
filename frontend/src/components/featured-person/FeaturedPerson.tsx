@@ -32,7 +32,7 @@ export const FeaturedPerson: FC<FeaturedPersonProps> = ({
       </BlobShape>
       <figcaption className="text-center mt-4">
         <SecondaryHeading>
-          {name}, {role}
+          <span className="font-headings text-2xl">{name}, {role}</span>
         </SecondaryHeading>
       </figcaption>
       <blockquote className="w-full text-center mt-2">

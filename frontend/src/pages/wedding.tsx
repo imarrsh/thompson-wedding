@@ -37,7 +37,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
             Join us for our ceremony followed by a cocktail hour and reception filled with good food, an open bar and dancing.
           </p>
         </CardBase>
-        <article>
+        <article className="p-8">
           <h3 className="text-6xl text-center font-script mt-8 mb-8">details</h3>
           <ul className="grid grid-cols-2 gap-8">
             <li>
@@ -46,7 +46,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">Attire: Cocktail</h3>
-                <p>Join us in our celebration by getting a little dressed up!</p>
+                <p className="mt-2">Join us in our celebration by getting a little dressed up!</p>
               </figcaption>
             </li>
             <li>
@@ -63,9 +63,9 @@ const IndexPage: FC<PageProps<{}>> = () => (
                 <Image fileName="hashtag.svg"/>
               </figure>
               <figcaption>
-                <h3 className="text-xl mt-2">Hashtag</h3>
+                <h3 className="text-xl mt-2">#toastingthethompsons</h3>
                 <p className="mt-2">
-                  Please use our wedding hashtag when posting pictures on social media: <span className="text-steelBlue-400">#toastingthethompsons</span>
+                  Please use our wedding hashtag when posting pictures on social media.
                 </p>
               </figcaption>
             </li>
@@ -75,7 +75,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">Weather</h3>
-                <p className="mt-2">Perry's Landing is an outdoor venue, but no worries if there is inclement weather &mdash; there will be access to a tent and&nbsp;barn</p>
+                <p className="mt-2">Perry's Landing is an outdoor venue, but no worries if there is inclement weather &mdash; there will be access to a tent and&nbsp;barn.</p>
               </figcaption>
             </li>
           </ul>

@@ -11,7 +11,7 @@ type AccommodationSectionProps = {
 export const AccommodationSection: FC<AccommodationSectionProps> = ({category, list}) => {
   return list.length ? (
     <>
-      <TertiaryHeading className="text-xl mt-2">{category}</TertiaryHeading>
+      <TertiaryHeading textSize="text-4xl" className="font-script lowercase mt-2">{category}</TertiaryHeading>
       <ul className="mt-4 grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid-rows-2 gap-8">
         {list.map(a => 
           <li key={a.name}>

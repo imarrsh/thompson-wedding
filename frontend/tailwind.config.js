@@ -3,7 +3,8 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 const fontfamily = defaultTheme.fontFamily;
 const sans = ['"Nunito Sans"', 'Roboto', ...fontfamily.sans];
-const headings = ['"Amatic SC"', ...fontfamily.serif];
+const headings = ['"Charmonman"', ...fontfamily.serif];
+const title = ['"Charmonman"', ...fontfamily.serif];
 const script = ['"Tangerine"', ...fontfamily.serif];
 
 const colors = {
@@ -42,6 +43,7 @@ module.exports = {
     fontFamily: {
       sans,
       headings,
+      title,
       script
     },
     colors,
