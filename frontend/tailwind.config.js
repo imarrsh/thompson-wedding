@@ -2,9 +2,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 const fontfamily = defaultTheme.fontFamily;
-const sans = ['"Nunito Sans"', 'Roboto', ...fontfamily.sans];
+const sans = ['"Montserrat"', 'Roboto', ...fontfamily.sans];
 const headings = ['"Charmonman"', ...fontfamily.serif];
-const title = ['"Charmonman"', ...fontfamily.serif];
+const title = ['"Sue Ellen Francisco"', ...fontfamily.serif];
 const script = ['"Tangerine"', ...fontfamily.serif];
 
 const colors = {

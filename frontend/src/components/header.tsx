@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { Link } from "gatsby";
-import React, { FC, useEffect, useRef } from "react";
+import React, { FC, useRef } from "react";
 import { usePageYOffset } from "../hooks/usePageYOffset";
 import { Navigation } from './navigation';
-import { MainHeading } from './typography';
+import { Heading } from "./typography";
 
 type HeaderProps = {
   siteTitle?: string
@@ -24,11 +24,15 @@ const Header: FC<HeaderProps> = ({ siteTitle = `` }) => {
         ['pt-2 pb-3']: isPastThreshold,
         ['py-4']: !isPastThreshold,
       })}>
-        <MainHeading className="text-sageGreen-500 transition-all" size={pageYOffset < 15 ? 'l' : 'm'}>
+        <Heading level={1} size={pageYOffset < 15 ? 'l' : 'm'} fontFamilyStyle="title" classes={clsx(
+          "text-sageGreen-500", 
+          "transition-all",
+          "uppercase"
+        )}>
           <Link to="/">
             Kaila & Marshall
           </Link>
-        </MainHeading>
+        </Heading>
       </div>
       <Navigation />
     </header>

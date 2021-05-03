@@ -1,3 +1,4 @@
+export { Heading } from './Heading';
 export { MainHeading } from './MainHeading';
 export { SecondaryHeading } from './SecondaryHeading';
 export { TertiaryHeading } from './TertiaryHeading';

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
-import { TypographyBase } from './TypographyBase';
+import { Heading } from './Heading';
 
 type HeadingProps = {
   className?: string;
@@ -13,7 +13,7 @@ export const TertiaryHeading: FC<HeadingProps> = ({
   className = ''
 }) => {
 
-  return <TypographyBase element="h3" classes={
+  return <Heading level={3} classes={
     clsx(
       textSize,
       "uppercase",
@@ -21,5 +21,5 @@ export const TertiaryHeading: FC<HeadingProps> = ({
     )
   }>
     {children}
-  </TypographyBase>;
+  </Heading>;
 };

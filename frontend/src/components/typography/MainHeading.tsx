@@ -1,36 +1,19 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC } from 'react';
 import clsx from 'clsx';
-import { TypographyBase } from './TypographyBase';
+import { Heading } from './Heading';
 
 type MainHeadingTypes = {
-  className?: string;
-  size: 's' | 'm' | 'l';
+  classes?: string;
+  
 }
 
-const textSize: Record<MainHeadingTypes["size"], string> = {
-  s: 'text-lg',
-  m: 'text-3xl',
-  l: 'text-6xl',
-};
-
-const classes = {
-  text: (size: MainHeadingTypes["size"]) => textSize[size]
-};
-
 export const MainHeading: FC<MainHeadingTypes> = ({
-  className = '',
-  size = 'l',
+  classes = '', 
   children
 }) => {
-  
-  const classNames = className.split(' ');
-
   return (
-    <TypographyBase element="h1" fontFamilyStyle="heading" classes={clsx(
-      classes.text(size),
-      ...classNames
-    )}>
+    <Heading level={1} size="l" classes={clsx(classes)}>
       {children}
-    </TypographyBase>
+    </Heading>
   );
 };

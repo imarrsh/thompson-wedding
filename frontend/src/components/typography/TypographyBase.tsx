@@ -1,16 +1,15 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
 
-const typographyElementsMap = {
-  h1: "h1",
-  h2: "h2",
-  h3: "h3",
-  h4: "h4",
-  h5: "h5",
-  h6: "h6",
-  p: "p",
-  span: "span"
-};
+export type TypographyElementsKey = 
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "p"
+  | "span";
 
 const fontFamilyStyleMap = {
   sans: "font-sans",
@@ -21,14 +20,16 @@ const fontFamilyStyleMap = {
   script: "font-script",
 };
 
+export type FontFamilyStyle = keyof typeof fontFamilyStyleMap;
+
 type TypographyBaseProps = {
-  fontFamilyStyle?: keyof typeof fontFamilyStyleMap;
-  element?: keyof typeof typographyElementsMap;
+  fontFamilyStyle?: FontFamilyStyle;
+  element?: TypographyElementsKey;
   classes?: string;
 }
 
 /**
- * Handle the base-level typography elements and their font family
+ * Handles the base-level typography elements and their font family via TailwindCSS
  */
 export const TypographyBase: FC<TypographyBaseProps> = ({
   fontFamilyStyle = "sans",

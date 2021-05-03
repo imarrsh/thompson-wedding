@@ -55,7 +55,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Charmonman', 'Nunito Sans', 'Tangerine']
+          families: ['Charmonman', 'Montserrat:400,700', 'Tangerine', 'Sue Ellen Francisco']
         }
         /*
           Charmonman
