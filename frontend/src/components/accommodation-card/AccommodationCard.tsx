@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Location } from '../../data';
 import { Image } from '../image';
 import { Link } from '../navigation';
-import { TertiaryHeading } from '../typography';
+import { Heading } from '../typography';
 import { StyledBlockContent } from '../block-content';
 
 type AccommodationCardProps = {
@@ -49,7 +49,7 @@ export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}
         />
       </figure>
       <figcaption className="p-4">
-        <TertiaryHeading className="truncate">{a.name}</TertiaryHeading>
+        <Heading level={4} size="s" classes="truncate" fontFamilyStyle="sans">{a.name}</Heading>
         <Link href={getMapHref(a.location.lat, a.location.lng)} className="text-gray-400">
           <address className="leading-tight mt-1">
             {a.address1}<br/>

@@ -18,26 +18,22 @@ const NavLink = styled(Link)`
   }
 `;
 
+const links = [
+  {name: 'Our Story', to: '/our-story/'},
+  {name: 'The Wedding', to: '/wedding/'},
+  {name: 'Wedding Party', to: '/wedding-party/'},
+  {name: 'Registry', to: '/registry/'},
+  {name: 'Accommodations', to: '/accommodations/'},
+];
+
 export const Navigation: FC<NavigationProps> = (props) => {
   const activeClass = "text-sageGreen-500";
   return(
     <nav className="container px-4 mx-auto">
       <ul className="flex items-center justify-between list-none mx-auto">
-        <li>
-          <NavLink to="/our-story/" activeClassName={activeClass}>Our Story</NavLink>
-        </li>
-        <li>
-          <NavLink to="/wedding/" activeClassName={activeClass}>The Wedding</NavLink>
-        </li>
-        <li>
-          <NavLink to="/wedding-party/" activeClassName={activeClass}>Wedding Party</NavLink>
-        </li>
-        <li>
-          <NavLink to="/registry/" activeClassName={activeClass}>Registry</NavLink>
-        </li>
-        <li>
-          <NavLink to="/accommodations/" activeClassName={activeClass}>Accommodations</NavLink>
-        </li>
+        {links.map(link => <li key={link.name}>
+          <NavLink to={link.to} activeClassName={activeClass}>{link.name}</NavLink>
+        </li>)}
       </ul>
     </nav>
   );
