@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import { SquigglyExoticCat } from "../components/icons/ornaments";
 import { Image } from '../components/image';
 import clsx from "clsx";
+import { Heading } from "../components/typography";
 
 const IndexPage: FC<PageProps<{}>> = () => (
   <Layout>
@@ -12,14 +13,14 @@ const IndexPage: FC<PageProps<{}>> = () => (
     <div className="p-4">
       <SquigglyExoticCat className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="container max-w-4xl mx-auto">
-        <h2 className="text-3xl text-center">Ceremony and Reception</h2>
-        <div>
+        {/* <div>
           photos
-        </div>
+        </div> */}
         <CardBase>
           <div className="flex">
             <div className="flex-grow">
-              <p className="text-3xl">
+              <Heading level={3} size="xl" fontFamilyStyle="script" classes="mb-4">Ceremony and Reception</Heading>
+              <p className="text-2xl">
                 Saturday, October 9, 2021<br/>
                 5:00 pm &ndash; 11:00 pm
               </p>
@@ -97,7 +98,6 @@ const CardBase: FC<CardBaseProps> = ({className, children}) =>
       "shadow-lg", 
       "rounded-md", 
       "p-8",
-      "mt-16",
       className
     )}
   >
