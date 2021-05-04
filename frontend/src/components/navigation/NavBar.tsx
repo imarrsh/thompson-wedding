@@ -2,8 +2,11 @@ import React, { FC } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import clsx from 'clsx';
 
-type NavigationProps = {}
+type NavigationProps = {
+  isOpen?: boolean;
+}
 
 // use styled-components + twin.macro since tailwind lacks support for psuedo elements 
 const NavLink = styled(Link)`
@@ -26,14 +29,29 @@ const links = [
   {name: 'Accommodations', to: '/accommodations/'},
 ];
 
-export const Navigation: FC<NavigationProps> = (props) => {
-  const activeClass = "text-sageGreen-500";
+const activeClass = "text-sageGreen-500";
+
+export const Navigation: FC<NavigationProps> = ({
+  isOpen = false
+}) => {
+
   return(
     <nav className="container px-4 mx-auto">
-      <ul className="flex items-center justify-between list-none mx-auto">
-        {links.map(link => <li key={link.name}>
-          <NavLink to={link.to} activeClassName={activeClass}>{link.name}</NavLink>
-        </li>)}
+      <ul className={clsx(
+        "flex",
+        "flex-col",
+        "md:flex-row", {
+          ["hidden"]: !isOpen
+        },
+        "items-center",
+        "justify-between",
+        "list-none mx-auto"
+      )}>
+        {links.map(link => 
+          <li key={link.name}>
+            <NavLink to={link.to} activeClassName={activeClass}>{link.name}</NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );
