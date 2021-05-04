@@ -40,9 +40,10 @@ export const Navigation: FC<NavigationProps> = ({
       <ul className={clsx(
         "flex",
         "flex-col",
-        "md:flex-row", {
-          ["hidden"]: !isOpen
+        {
+          ["sm-max:hidden"]: !isOpen
         },
+        "md:flex-row", 
         "items-center",
         "justify-between",
         "list-none mx-auto"

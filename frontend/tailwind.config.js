@@ -48,6 +48,13 @@ module.exports = {
     },
     colors,
     extend: {},
+    screens: {
+      ...defaultTheme.screens,
+      'xl-max': { 'max': '1535px' },
+      'lg-max': { 'max': '1279px' },
+      'md-max': { 'max': '1023px' },
+      'sm-max': { 'max': '767px' },
+    },
   },
   variants: {
     extend: {
