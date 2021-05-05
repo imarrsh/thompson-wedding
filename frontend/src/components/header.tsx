@@ -17,7 +17,7 @@ const Header: FC<HeaderProps> = ({ siteTitle = `` }) => {
   const headerRef = useRef<HTMLElement>(null);
   const isPastThreshold = pageYOffset > 15;
   const [ isMenuOpen, setMenuOpen ] = useState(false);
-  console.log(isMenuOpen);
+  
   const handleMenuClick = () => {
     setMenuOpen(!isMenuOpen);
   };

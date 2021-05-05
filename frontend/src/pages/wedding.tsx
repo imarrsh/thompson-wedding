@@ -30,7 +30,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
                 Hephzibah, GA 30815
               </p>
             </div>
-            <div>
+            <div className="sm-max:hidden">
               <Image fileName="calendar.svg"/>
             </div>
           </div>
@@ -40,7 +40,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
         </CardBase>
         <article className="p-8">
           <h3 className="text-6xl text-center font-script mt-8 mb-8">details</h3>
-          <ul className="grid grid-cols-2 gap-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
             <li>
               <figure className="flex items-center w-16 h-16">
                 <Image fileName="attire.svg" />
@@ -103,9 +103,3 @@ const CardBase: FC<CardBaseProps> = ({className, children}) =>
   >
     {children}
   </article>;
-
-// export const query = graphql`
-//   query WeddingPageQuery {
-
-//   }
-// `;
