@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import { SquigglyExoticCat } from "../components/icons/ornaments";
 import { Image } from '../components/image';
 import clsx from "clsx";
-import { Heading } from "../components/typography";
+import { Heading, Paragraph } from "../components/typography";
 
 const IndexPage: FC<PageProps<{}>> = () => (
   <Layout>
@@ -34,9 +34,9 @@ const IndexPage: FC<PageProps<{}>> = () => (
               <Image fileName="calendar.svg"/>
             </div>
           </div>
-          <p className="mt-4">
+          <Paragraph spacing={4}>
             Join us for our ceremony followed by a cocktail hour and reception filled with good food, an open bar and dancing.
-          </p>
+          </Paragraph>
         </CardBase>
         <article className="p-8">
           <h3 className="text-6xl text-center font-script mt-8 mb-8">details</h3>
@@ -47,7 +47,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">Attire: Cocktail</h3>
-                <p className="mt-2">Join us in our celebration by getting a little dressed up!</p>
+                <Paragraph spacing={4}>Join us in our celebration by getting a little dressed up!</Paragraph>
               </figcaption>
             </li>
             <li>
@@ -56,7 +56,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">Free Parking</h3>
-                <p className="mt-2">Parking will be available to the right upon arriving to the&nbsp;venue.</p>
+                <Paragraph spacing={4}>Parking will be available to the right upon arriving to the&nbsp;venue.</Paragraph>
               </figcaption>
             </li>
             <li>
@@ -65,9 +65,9 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">#toastingthethompsons</h3>
-                <p className="mt-2">
+                <Paragraph spacing={4}>
                   Please use our wedding hashtag when posting pictures on social media.
-                </p>
+                </Paragraph>
               </figcaption>
             </li>
             <li>
@@ -76,7 +76,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
               </figure>
               <figcaption>
                 <h3 className="text-xl mt-2">Weather</h3>
-                <p className="mt-2">Perry's Landing is an outdoor venue, but no worries if there is inclement weather &mdash; there will be access to a tent and&nbsp;barn.</p>
+                <Paragraph spacing={4}>Perry's Landing is an outdoor venue, but no worries if there is inclement weather &mdash; there will be access to a tent and&nbsp;barn.</Paragraph>
               </figcaption>
             </li>
           </ul>

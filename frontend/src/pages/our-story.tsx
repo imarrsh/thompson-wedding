@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import clsx from "clsx";
 import { Image } from '../components/image';
 import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
+import { Paragraph } from "../components/typography";
 
 type OurStoryPageProps = {
   album: {
@@ -63,23 +63,6 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
         </section>
       </div>
     </Layout>
-  );
-};
-
-
-
-type ParagraphProps = {
-  weight?: string;
-}
-
-const Paragraph: FC<ParagraphProps> = ({
-  weight = 'font-light',
-  children
-}) => {
-  return (
-    <p className={clsx('font-sans', 'my-8', 'leading-8',weight)}>
-      {children}
-    </p>
   );
 };
 

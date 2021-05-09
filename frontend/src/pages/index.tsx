@@ -7,7 +7,7 @@ import SEO from "../components/seo";
 
 import { useInterval } from '../hooks/useInterval';
 import clsx from "clsx";
-import { Heading } from "../components/typography";
+import { Heading, Paragraph } from "../components/typography";
 
 // todo: grab from sanity 
 const WEDDING_DATE = new Date('2021-10-09T17:30:00.000-04:00');
@@ -62,14 +62,14 @@ const IndexPage: FC<PageProps<{}>> = () => {
             <Heading level={2} fontFamilyStyle="sans" size="m">
               {getMessageBasedOnDays(countdownInDays)}
             </Heading>
-            <p className="my-4">
+            <Paragraph>
               Welcome to our wedding website and thank you for choosing to celebrate our special day with us!
               Please explore our site to learn more about our wedding details, wedding party, registry information, local accommodations and things to do in and around Augusta, Ga.
-            </p>
+            </Paragraph>
             
-            <p className="my-4">
+            <Paragraph>
               We are so exited to celebrate this day with you and look forward to all the special memories we will make.
-            </p>
+            </Paragraph>
           </section>
         </article>
 

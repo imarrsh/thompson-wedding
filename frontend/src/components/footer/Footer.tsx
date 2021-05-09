@@ -11,9 +11,7 @@ export const Footer: FC = (props) => {
         </Heading>
         <p className="mb-2">October 9, 2021</p>
         <p>
-          &copy; {new Date().getFullYear()}, Built by the Groom with <a href="https://www.gatsbyjs.com">Gatsby</a>, <a href="hhttps://www.sanity.io/">Sanity</a>, <a href="https://tailwindcss.com/">TailwindCSS</a>. 
-          Hosted on <a href="https://www.netlify.com/">Netlify</a>, <a href="https://github.com/imarrsh/thompson-wedding">source on Github</a>. 
-          | <Link to="/design-system">Design System</Link>      
+          &copy; {new Date().getFullYear()}, Built by the Groom. <a href="https://github.com/imarrsh/thompson-wedding">Source on Github</a>.  
         </p>
       </div>
     </footer>

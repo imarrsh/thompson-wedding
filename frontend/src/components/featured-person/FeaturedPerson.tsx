@@ -3,7 +3,7 @@ import { BlobShape } from "../images/BlobImg";
 import { Image } from  "../image";
 import { 
   SecondaryHeading,
-  Body1,
+  Paragraph,
 } from "../typography";
 
 type FeaturedPersonProps = {
@@ -36,7 +36,7 @@ export const FeaturedPerson: FC<FeaturedPersonProps> = ({
         </SecondaryHeading>
       </figcaption>
       <blockquote className="w-full text-center mt-2">
-        <Body1>{bio}</Body1>
+        <Paragraph>{bio}</Paragraph>
       </blockquote>
     </figure>
   );

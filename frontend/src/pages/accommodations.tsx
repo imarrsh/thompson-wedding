@@ -5,6 +5,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SquigglyLinePeakUp } from "../components/icons/ornaments";
 import { AccommodationSection } from "../components/accommodation-card/AccommodationSection";
+import { Paragraph } from "../components/typography";
 
 interface AccomodationsPageProps {
   accommodations: {
@@ -26,12 +27,12 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
       <SEO title="Accommodations" />
       <section className="p-4">
         <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
-        <p className="font-sans">
+        <Paragraph>
           We know some of you may come from afar and may not be familiar with all the Augusta, Ga has to offer. 
           We've arranged for block rates at some great hotels, but you're more than welcome to explore other offers in the area. 
           We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
           has quite a few gems to offer.
-        </p>
+        </Paragraph>
         <AccommodationSection list={lodgingEntries} category="Lodging" />
       </section>
     </Layout>
