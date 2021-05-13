@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
 import { Location } from '../data/types';
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SquigglyLinePeakUp } from "../components/icons/ornaments";
 import { AccommodationSection } from "../components/accommodation-card/AccommodationSection";
@@ -23,7 +22,7 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
   const lodgingEntries = accommodations.filter(a => Object.is(a.category, 'lodging'));
 
   return (
-    <Layout>
+    <>
       <SEO title="Accommodations" />
       <section className="p-4">
         <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
@@ -35,7 +34,7 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
         </Paragraph>
         <AccommodationSection list={lodgingEntries} category="Lodging" />
       </section>
-    </Layout>
+    </>
   );
 };
 

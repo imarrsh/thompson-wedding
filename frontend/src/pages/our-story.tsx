@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Image } from '../components/image';
 import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
@@ -26,7 +25,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
   } = props;
 
   return (
-    <Layout>
+    <>
       <SEO title="Our Story" />
       <div className="p-4">
         <SquigglyUpsidedownHeart className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
@@ -62,7 +61,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
           </article>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 

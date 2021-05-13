@@ -1,13 +1,7 @@
 import React, { FC } from "react";
-import { PageProps, Link } from "gatsby";
-
-import Layout from "../components/layout";
+import { PageProps } from "gatsby";
 import SEO from "../components/seo";
 
-const Rsvp: FC<PageProps<{}>> = () => (
-  <Layout>
-    <SEO title="RSVP" />
-  </Layout>
-);
+const Rsvp: FC<PageProps<{}>> = () => <SEO title="RSVP" />;
 
 export default Rsvp;

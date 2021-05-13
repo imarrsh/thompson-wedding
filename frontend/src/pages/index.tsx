@@ -1,12 +1,8 @@
 import React, { FC, useState } from "react";
 import { PageProps, Link } from "gatsby";
-
-import Layout from "../components/layout";
 import Image from "../components/image/image";
 import SEO from "../components/seo";
-
 import { useInterval } from '../hooks/useInterval';
-import clsx from "clsx";
 import { Heading, Paragraph } from "../components/typography";
 
 // todo: grab from sanity 
@@ -53,7 +49,7 @@ const IndexPage: FC<PageProps<{}>> = () => {
   }, 1000);
 
   return (
-    <Layout>
+    <>
       <SEO title="Welcome" />
       <div className="container mx-auto px-0 sm:px-4">
         <article>
@@ -74,7 +70,7 @@ const IndexPage: FC<PageProps<{}>> = () => {
         </article>
 
       </div>
-    </Layout>
+    </>
   );
 };
 

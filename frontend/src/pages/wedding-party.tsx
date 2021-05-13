@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
-
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { FeaturedPerson } from "../components/featured-person";
 import { hashCode } from "../utils";
@@ -28,7 +26,7 @@ const WeddingParty: FC<PageProps<WeddingPageProps>> = (props) => {
   } = props;
 
   return (
-    <Layout>
+    <>
       <SEO title="Wedding Party" />
       <div className="container mx-auto py-4">
         <LeafyCrownFlat className="h-24 w-24 mx-auto text-sageGreen-600 fill-current"/>
@@ -45,7 +43,7 @@ const WeddingParty: FC<PageProps<WeddingPageProps>> = (props) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

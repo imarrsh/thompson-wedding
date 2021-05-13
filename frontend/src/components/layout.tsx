@@ -11,25 +11,16 @@ import { useStaticQuery, graphql } from "gatsby";
 import Header from "./header";
 import { Footer } from "./footer";
 
-const Layout: FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+const Layout: FC = ({ children, ...rest }) => {
+
+  console.log(rest);
 
   return (
-    <>
-      <div className="flex flex-col min-h-screen">
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <main className="flex-grow">{children}</main>
+      <Footer />
+    </div>
   );
 };
 

@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
-
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { GiftRegisry } from '../data';
 import { RegistryCard } from "../components/registry-card";
@@ -23,7 +21,7 @@ const Registry: FC<PageProps<RegistryPageProps>> = (props) => {
   } = props;
 
   return (
-      <Layout>
+      <>
         <SEO title="Registry" />
         <div className="container mx-auto p-4">
           <LeafyCrown className="h-24 w-24 mx-auto text-sageGreen-600 fill-current"/>
@@ -41,7 +39,7 @@ const Registry: FC<PageProps<RegistryPageProps>> = (props) => {
             )}
           </ul>
         </div>
-      </Layout>
+      </>
   );
 };
 

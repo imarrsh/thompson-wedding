@@ -1,19 +1,18 @@
 import React, { FC } from "react";
 import { PageProps } from "gatsby";
 
-import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { MainHeading, SecondaryHeading, Body1 } from "../components/typography";
 import { FeaturedPerson } from "../components/featured-person";
 import clsx from "clsx";
 
 const DesignSystem: FC<PageProps<{}>> = () => (
-  <Layout>
+  <>
     <SEO title="Design System" />
     <section className="container mx-auto pt-8 divide-y-2">
       <div className="py-8">
         <h1 className="mb-4">Typography</h1>
-        <MainHeading size="l">Main Heading</MainHeading>
+        <MainHeading>Main Heading</MainHeading>
         <SecondaryHeading>Secondary Heading</SecondaryHeading>
         <Body1>Body 1</Body1>
       </div>
@@ -29,7 +28,7 @@ const DesignSystem: FC<PageProps<{}>> = () => (
         </div>
       </div>
     </section>
-  </Layout>
+  </>
 );
 
 type ButtonProps = {

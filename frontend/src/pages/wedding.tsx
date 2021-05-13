@@ -1,6 +1,5 @@
 import React, { FC } from "react";
-import { graphql, PageProps } from "gatsby";
-import Layout from "../components/layout";
+import { PageProps } from "gatsby";
 import SEO from "../components/seo";
 import { SquigglyExoticCat } from "../components/icons/ornaments";
 import { Image } from '../components/image';
@@ -8,7 +7,7 @@ import clsx from "clsx";
 import { Heading, Paragraph } from "../components/typography";
 
 const IndexPage: FC<PageProps<{}>> = () => (
-  <Layout>
+  <>
     <SEO title="The Wedding" />
     <div className="p-4">
       <SquigglyExoticCat className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
@@ -83,7 +82,7 @@ const IndexPage: FC<PageProps<{}>> = () => (
         </article>
       </div>
     </div>
-  </Layout>
+  </>
 );
 
 export default IndexPage;
