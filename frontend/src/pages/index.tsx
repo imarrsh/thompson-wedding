@@ -40,12 +40,10 @@ function getDiffInDays(future: number, now: number): number {
 
 const IndexPage: FC<PageProps<{}>> = () => {
   
-  const [ countdownInDays, setCountdownInDays ] = useState<number | null>(null);
+  const [ countdownInDays, setCountdownInDays ] = useState<number>(getDiffInDays(WEDDING_DATE.getTime(), Date.now()));
   
   useInterval(() => {
-    const now = Date.now();
-    const weddingTime = WEDDING_DATE.getTime();
-    setCountdownInDays(getDiffInDays(weddingTime, now));
+    setCountdownInDays(getDiffInDays(WEDDING_DATE.getTime(), Date.now()));
   }, 1000);
 
   return (
