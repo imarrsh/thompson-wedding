@@ -6,7 +6,7 @@ import { hashCode } from "../utils";
 import { FeaturedPerson as FeaturedPersonProps } from "../data";
 import { LeafyCrownFlat } from "../components/icons/ornaments";
 
-interface WeddingPageProps {
+interface WeddingPartyPageProps {
   bridesmaids: {
     nodes: FeaturedPersonProps[]
   }
@@ -15,7 +15,7 @@ interface WeddingPageProps {
   }
 }
 
-const WeddingParty: FC<PageProps<WeddingPageProps>> = (props) => {
+const WeddingParty: FC<PageProps<WeddingPartyPageProps>> = (props) => {
 
   const {
     data: {

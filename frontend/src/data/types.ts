@@ -22,6 +22,9 @@ export type Location = {
   image: any;
   location: GeoPoint;
   url?: string;
+  slug: {
+    current: string;
+  }
   description: any; // PortableText!
 }
 

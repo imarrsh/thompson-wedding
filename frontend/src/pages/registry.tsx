@@ -23,7 +23,7 @@ const Registry: FC<PageProps<RegistryPageProps>> = (props) => {
   return (
       <>
         <SEO title="Registry" />
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 px-8 max-w-5xl">
           <LeafyCrown className="h-24 w-24 mx-auto text-sageGreen-600 fill-current"/>
           <Paragraph>
             We are already blessed with much love, laughter and half a household of furniture!

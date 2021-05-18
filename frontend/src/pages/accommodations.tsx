@@ -22,19 +22,17 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
   const lodgingEntries = accommodations.filter(a => Object.is(a.category, 'lodging'));
 
   return (
-    <>
+    <section className="p-4">
       <SEO title="Accommodations" />
-      <section className="p-4">
-        <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
-        <Paragraph>
-          We know some of you may come from afar and may not be familiar with all the Augusta, Ga has to offer. 
-          We've arranged for block rates at some great hotels, but you're more than welcome to explore other offers in the area. 
-          We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
-          has quite a few gems to offer.
-        </Paragraph>
-        <AccommodationSection list={lodgingEntries} category="Lodging" />
-      </section>
-    </>
+      <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
+      <Paragraph>
+        We know some of you may come from afar and may not be familiar with all Augusta, Ga has to offer. 
+        We've arranged for block rates at some great hotels, but you're more than welcome to explore other offers in the area. 
+        We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
+        has quite a few gems to offer.
+      </Paragraph>
+      <AccommodationSection list={lodgingEntries} category="Lodging" />
+    </section>
   );
 };
 
@@ -57,6 +55,9 @@ query LocationAccomodationsQuery {
       state
       zipcode
       url
+      slug {
+        current
+      }
       description: _rawRtDescription
       location {
         lat
