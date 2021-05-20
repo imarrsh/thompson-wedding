@@ -62,7 +62,7 @@ const IndexPage: FC<PageProps<{}>> = () => {
             </Paragraph>
             
             <Paragraph>
-              We are so exited to celebrate this day with you and look forward to all the special memories we will make.
+              We are so excited to celebrate this day with you and look forward to all the special memories we will make.
             </Paragraph>
           </section>
         </article>
