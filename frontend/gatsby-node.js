@@ -26,7 +26,6 @@ async function createAccommodationPages({ graphql, actions }) {
   `);
 
   data.locations.nodes.forEach((location) => {
-    console.log('creating location', location);
     actions.createPage({
       path: `accommodations/${location.slug.current}`,
       component: template,
