@@ -25,15 +25,17 @@ const weddingDetails = [{
     description: "Parking will be available to the right upon arriving to the\u00A0venue."
   },
   {
+    img: "weather.svg",
+    title: "Weather",
+    description: "We have a tent and a barn so if there is inclement weather the party will go\u00A0on."
+  },
+  {
     img: "hashtag.svg",
     title: "#toastingthethompsons",
     description: "Please use our wedding hashtag when posting pictures on social media."
   },
-  {
-    img: "weather.svg",
-    title: "Weather",
-    description: "Perry's Landing is an outdoor venue, but no worries if there is inclement weather \u2014 there will be access to a tent and\u00A0barn."
-}];
+  
+];
 
 type WeddingPageProps = {
   locations: {
