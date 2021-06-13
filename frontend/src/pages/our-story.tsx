@@ -3,7 +3,7 @@ import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
 import { Image } from '../components/image';
 import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
-import { Paragraph } from "../components/typography";
+import { Heading, Paragraph } from "../components/typography";
 
 type OurStoryPageProps = {
   album: {
@@ -45,7 +45,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
             </div>
           </div>
           <article className="max-w-xl mx-auto">
-            <h2 className="font-headings text-5xl text-center mt-6">It's a Match!</h2>
+            <Heading level={2} fontFamilyStyle="script" size="xl" classes="text-center mt-8">It's a Match!</Heading>
             <Paragraph>
               It all began with an app. You know the one. A fateful spring day in 2014, Kaila and Marshall swiped right on each other. He offered some cheesy lines and she let him think they were clever. Eventually, they agreed to meet in person. A quick meeting at Panera Bread turned into 6 hours as they couldn’t stop talking. Neither seemed to want the night to end. Kaila called a friend on her way home, excited to talk about the guy she just met and the connection they seemed to share.
             </Paragraph>
