@@ -4,7 +4,7 @@ import { PageProps } from "gatsby";
 import SEO from "../components/seo";
 import { MainHeading, SecondaryHeading, Body1 } from "../components/typography";
 import { FeaturedPerson } from "../components/featured-person";
-import clsx from "clsx";
+import { Button } from "../components/buttons/Button";
 
 const DesignSystem: FC<PageProps<{}>> = () => (
   <>
@@ -30,26 +30,5 @@ const DesignSystem: FC<PageProps<{}>> = () => (
     </section>
   </>
 );
-
-type ButtonProps = {
-  variant?: 'fill' | 'outline';
-  twClasses?: string;
-}
-
-const Button: FC<ButtonProps> = ({
-  variant = 'fill',
-  twClasses = '',
-  children
-}) => {
-  const variantClasses = variant === 'fill' 
-  ? 'bg-green-600 text-gray-50 hover:bg-green-500 transition-colors'
-  : 'text-green-600 border-green-600 border hover:bg-green-600 hover:text-gray-50 transition-colors';
-
-  return (
-    <button className={clsx("py-2 px-6 rounded-full", variantClasses, twClasses)}>
-      {children}
-    </button>
-  );
-};
 
 export default DesignSystem;
