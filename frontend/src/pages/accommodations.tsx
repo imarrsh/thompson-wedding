@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import { Location } from '../data/types';
 import SEO from "../components/seo";
@@ -13,9 +13,16 @@ interface AccomodationsPageProps {
   }
 }
 
+const filterButtonsMap = [
+  {name: "All", value: ""},
+  {name: "Lodging", value: "lodging"},
+  {name: "Restaurants", value: "restaurants"},
+  {name: "Points of Interest", value: "poi"},
+];
+
 type FilterKeyword = '' | 'lodging' | 'restaurants' | 'poi';
 
-const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
+const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
   const {
     data: {
       accommodations: { nodes: accommodations }
@@ -41,30 +48,15 @@ const Accommodations : FC<PageProps<AccomodationsPageProps>> = (props) => {
         </Paragraph>
         <div className="flex">
           <div className="mx-auto">
-            <FilterButton 
-              active={activeFilter === ""} 
-              onClick={() => setActiveFilter('')}
-              >
-              All
-            </FilterButton>
-            <FilterButton 
-              active={activeFilter === "lodging"} 
-              onClick={() => setActiveFilter('lodging')}
-            >
-              Lodging
-            </FilterButton>
-            <FilterButton 
-              active={activeFilter === "restaurants"} 
-              onClick={() => setActiveFilter('restaurants')}
-            >
-              Restaurants
-            </FilterButton>
-            <FilterButton 
-              active={activeFilter === "poi"} 
-              onClick={() => setActiveFilter('poi')}
-              >
-              Points of Interest
-            </FilterButton>
+            {filterButtonsMap.map(
+              btn => 
+              <FilterButton 
+                key={btn.value}
+                text={btn.name}
+                active={activeFilter === btn.value} 
+                onClick={() => setActiveFilter(btn.value as FilterKeyword)}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -80,19 +72,20 @@ export default Accommodations;
 interface FilterButtonProps {
   active: boolean;
   onClick: () => void;
+  text: string;
 }
 
-const FilterButton: FC<FilterButtonProps> = ({
+const FilterButton = ({
   active = false,
   onClick = () => {},
-  children
-}) => 
+  text
+}: FilterButtonProps) => 
   <Button 
     variant={active ? "fill" : "outline"} 
     onClick={() => onClick()}
     twClasses="mx-2"
   >
-    {children}
+    {text}
   </Button>;
 
 export const query = graphql`
