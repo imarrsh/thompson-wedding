@@ -18,9 +18,10 @@ const filterButtonsMap = [
   {name: "Lodging", value: "lodging"},
   {name: "Restaurants", value: "restaurants"},
   {name: "Points of Interest", value: "poi"},
+  {name: "Bars and Nightlife", value: "bars_nightlife"},
 ];
 
-type FilterKeyword = '' | 'lodging' | 'restaurants' | 'poi';
+type FilterKeyword = '' | 'lodging' | 'restaurants' | 'poi' | 'bars_nightlife';
 
 const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
   const {
@@ -32,6 +33,7 @@ const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
   const lodgingEntries = accommodations.filter(a => Object.is(a.category, 'lodging'));
   const restaurantEntries = accommodations.filter(a => Object.is(a.category, 'restaurant'));
   const poiEntries = accommodations.filter(a => Object.is(a.category, 'poi'));
+  const nightlifeEntries = accommodations.filter(a => Object.is(a.category, 'bars_nightlife'));
 
   const [ activeFilter, setActiveFilter ] = React.useState<FilterKeyword>('');
 
@@ -47,7 +49,7 @@ const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
           has quite a few gems to offer.
         </Paragraph>
         <div className="flex">
-          <div className="mx-auto">
+          <div className="mx-auto flex flex-wrap gap-2 justify-center">
             {filterButtonsMap.map(
               btn => 
               <FilterButton 
@@ -63,6 +65,7 @@ const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
       { (activeFilter === "lodging" || !activeFilter) && <AccommodationSection list={lodgingEntries} category="Lodging" /> }
       { (activeFilter === "restaurants" || !activeFilter) && <AccommodationSection list={restaurantEntries} category="Restaurants" /> }
       { (activeFilter === "poi" || !activeFilter) && <AccommodationSection list={poiEntries} category="Points of Interest" /> }
+      { (activeFilter === "bars_nightlife" || !activeFilter) && <AccommodationSection list={nightlifeEntries} category="Bars and Nightlife" /> }
     </section>
   );
 };
