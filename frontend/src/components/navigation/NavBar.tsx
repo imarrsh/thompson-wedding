@@ -6,6 +6,7 @@ import clsx from 'clsx';
 
 type NavigationProps = {
   isOpen?: boolean;
+  handleItemClick?: () => void;
 }
 
 // use styled-components + twin.macro since tailwind lacks support for psuedo elements 
@@ -27,13 +28,21 @@ const links = [
   {name: 'Wedding Party', to: '/wedding-party/'},
   {name: 'Registry', to: '/registry/'},
   {name: 'Accommodations', to: '/accommodations/'},
+  // {name: 'Photos', to: '/photos/'},
 ];
 
 const activeClass = "text-sageGreen-500";
 
 export const Navigation: FC<NavigationProps> = ({
-  isOpen = false
+  isOpen = false,
+  handleItemClick = () => {}
 }) => {
+
+  const handleLinkClick = () => {
+    if (isOpen) {
+      handleItemClick();
+    }
+  }
 
   return(
     <nav className="container px-4 mx-auto">
@@ -50,7 +59,7 @@ export const Navigation: FC<NavigationProps> = ({
       )}>
         {links.map(link => 
           <li key={link.name}>
-            <NavLink to={link.to} activeClassName={activeClass}>{link.name}</NavLink>
+            <NavLink to={link.to} activeClassName={activeClass} onClick={handleLinkClick}>{link.name}</NavLink>
           </li>
         )}
       </ul>

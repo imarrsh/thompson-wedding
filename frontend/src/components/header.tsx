@@ -63,7 +63,7 @@ const Header: FC<HeaderProps> = ({ siteTitle = `` }) => {
           onClick={handleMenuClick}
         />
       </div>
-      <Navigation isOpen={isMenuOpen}/>
+      <Navigation isOpen={isMenuOpen} handleItemClick={handleMenuClick}/>
     </header>
   );
 };

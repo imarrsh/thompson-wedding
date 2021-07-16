@@ -9,5 +9,11 @@ export const StyledBlockContent = styled(BlockContent)`
   & p {
     ${tw`font-sans my-4 leading-8 font-light`}
   }
+  & strong, b {
+    ${tw`font-bold`}
+  }
+  & em, i {
+    ${tw`italic`}
+  }
 `;
 
