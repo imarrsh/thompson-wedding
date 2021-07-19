@@ -2,8 +2,9 @@ import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
 import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import Carousel, { CommonProps, Modal, ModalGateway } from "react-images";
 import styled from "styled-components";
+import { CustomView } from '../components/photo-viewer'
 
 type Album = {
   name: string;
@@ -68,16 +69,15 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
       <ModalGateway>
         {isViewerOpen ? (
           <Modal onClose={closeLightbox}>
-            <StyledCarouselWrapper>
-              <Carousel
-                currentIndex={currentImageIndex}
-                views={galleryImages.map(image => ({
-                  ...image,
-                  source: image.src,
-                  srcset: image.srcSet,
-                }))}
-              />
-            </StyledCarouselWrapper>
+            <Carousel
+              currentIndex={currentImageIndex}
+              views={galleryImages.map(image => ({
+                ...image,
+                source: image.src,
+                srcset: image.srcSet,
+              }))}
+              components={{View: CustomView}}
+            />
           </Modal>
         ) : null}
       </ModalGateway>
@@ -86,15 +86,6 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
 };
 
 export default Photos;
-
-/**
- * Carousel wrapper to set images back to inline
- */
-const StyledCarouselWrapper = styled.div`
-  img {
-    display: inline;
-  }
-`
 
 export const query = graphql`
   query AlbumsQuery {
