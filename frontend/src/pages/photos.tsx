@@ -1,7 +1,9 @@
-import React, { FC } from "react";
+import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
 import Gallery from "react-photo-gallery";
+import Carousel, { Modal, ModalGateway } from "react-images";
+import styled from "styled-components";
 
 type Album = {
   name: string;
@@ -35,23 +37,64 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
     }
   } = props;
 
+  const [ currentImageIndex, setCurrentImageIndex ] = React.useState(0);
+  const [ isViewerOpen, setIsViewerOpen ] = React.useState(false);
+
   const galleryImages = albums.nodes[0].images.map(image => {
-    debugger
-    return image.asset.fixed; 
+    const { height, width, src, srcSet } = image.asset.fixed;
+
+    return {
+      height,
+      width,
+      src,
+      srcSet
+    }; 
   });
 
+  const openLightbox = React.useCallback((event, { index }) => {
+    setCurrentImageIndex(index);
+    setIsViewerOpen(true);
+  }, []);
+
+  const closeLightbox = () => {
+    setCurrentImageIndex(0);
+    setIsViewerOpen(false);
+  }
+
   return (
-    <div className="container mx-auto p-4 px-8 max-w-5xl">
+    <div className="container mx-auto p-4 px-8 max-w-6xl">
       <SEO title="Our Photos" />
-      <Gallery photos={galleryImages} direction="column" />
-      {
-        // albums.nodes.map(a => a.name)
-      }
+      <Gallery photos={galleryImages} direction="column" onClick={openLightbox}/>
+      <ModalGateway>
+        {isViewerOpen ? (
+          <Modal onClose={closeLightbox}>
+            <StyledCarouselWrapper>
+              <Carousel
+                currentIndex={currentImageIndex}
+                views={galleryImages.map(image => ({
+                  ...image,
+                  source: image.src,
+                  srcset: image.srcSet,
+                }))}
+              />
+            </StyledCarouselWrapper>
+          </Modal>
+        ) : null}
+      </ModalGateway>
     </div>
   );
 };
 
 export default Photos;
+
+/**
+ * Carousel wrapper to set images back to inline
+ */
+const StyledCarouselWrapper = styled.div`
+  img {
+    display: inline;
+  }
+`
 
 export const query = graphql`
   query AlbumsQuery {
@@ -77,7 +120,7 @@ export const query = graphql`
             fluid(maxWidth: 1200) { 
               ...GatsbySanityImageFluid
             }
-            fixed {
+            fixed(width: 1000) {
               ...GatsbySanityImageFixed
             }
           }
