@@ -1,3 +1,4 @@
+import Default from 'part:@sanity/form-builder/input/image/asset-source-default'
 import { name, description } from "./CommonFieldDefinitions";
 
 export default {
@@ -16,6 +17,16 @@ export default {
       of: [{
         type: 'image'
       }]
-    }
+    },
+    {
+      name: 'coverImage',
+      type: 'image',
+      title: 'Cover Image',
+      options: {
+        sources: [
+          Default
+        ]
+      }
+    },
   ]
 }
