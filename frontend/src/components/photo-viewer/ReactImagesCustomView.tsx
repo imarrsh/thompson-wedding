@@ -11,12 +11,7 @@ import { CommonProps } from "react-images";
   
   const { 
     carouselProps, 
-    isFullscreen, 
-    isModal, 
-    getStyles, 
     currentView, 
-    currentIndex, 
-    views 
   } = props;
 
   const { formatters } = {...carouselProps} || {};
