@@ -28,7 +28,8 @@ const links = [
   {name: 'Wedding Party', to: '/wedding-party/'},
   {name: 'Registry', to: '/registry/'},
   {name: 'Accommodations', to: '/accommodations/'},
-  {name: 'Photos', to: '/photos/'},   
+  {name: 'Photos', to: '/photos/'},
+  {name: 'RSVP', to: '/rsvp/'},
 ];
 
 const activeClass = "text-sageGreen-500";

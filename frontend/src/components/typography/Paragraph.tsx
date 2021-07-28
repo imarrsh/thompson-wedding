@@ -6,6 +6,7 @@ type ParagraphProps = {
   weight?: string;
   spacing?: keyof typeof spacingKey;
   leading?: keyof typeof leadingKey;
+  textAlign?: keyof typeof textAlignKey;
 }
 
 // tailwind/purgecss needs full classNames in prod, so this makes sure theyre there
@@ -21,10 +22,18 @@ const leadingKey = {
   12: 'leading-12'
 };
 
+const textAlignKey = {
+  left: 'text-left',
+  center: 'text-center',
+  right: 'text-right',
+  justify: 'justtify',
+}
+
 export const Paragraph: FC<ParagraphProps> = ({
   weight = 'font-light',
   spacing = 8,
   leading = 8,
+  textAlign = "left",
   children
 }) => {
 
@@ -33,6 +42,7 @@ export const Paragraph: FC<ParagraphProps> = ({
       'font-sans', 
       spacingKey[spacing], 
       leadingKey[leading],
+      textAlignKey[textAlign],
       weight
     )}>
       {children}

@@ -92,7 +92,7 @@ export const query = graphql`
     albums: allSanityAlbum(
       filter: { 
         name: {
-          nin: ["Our Story"] # grab everything but the venue 
+          in: ["Engagement Photos"] # grab everything but the venue 
         }
       }
     ) {

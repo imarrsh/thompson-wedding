@@ -47,7 +47,13 @@ export default Registry;
 
 export const query = graphql`
   query RegistryQuery {
-    registries: allSanityRegistry {
+    registries: allSanityRegistry (
+      filter: { 
+        name: {
+          nin: ["Wedding Wire"] # grab everything but wedding wire 
+        }
+      }
+    ) {
       nodes {
         url
         name
