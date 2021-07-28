@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 export const Link: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({children, className, href, ...props}) => {
 
@@ -16,13 +17,17 @@ export const Link: FC<React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({childre
     rel = rel || 'noopener';
   }
 
-  return <a 
-    className={clsx(className)} 
-    href={href}
-    {...props}
-    target={target} 
-    rel={rel}> 
-      {children}
-  </a>;
+  const linkProps = {
+    className: clsx(className),
+    href,
+    target,
+    rel
+  }
+
+  return (
+    isOffsite 
+      ? <OutboundLink {...linkProps}>{children}</OutboundLink> 
+      : <a {...linkProps}>{children}</a>
+  );
 };
 
