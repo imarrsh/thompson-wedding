@@ -12,9 +12,6 @@ import Header from "./header";
 import { Footer } from "./footer";
 
 const Layout: FC = ({ children, ...rest }) => {
-
-  console.log(rest);
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

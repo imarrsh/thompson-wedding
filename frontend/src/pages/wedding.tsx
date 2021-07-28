@@ -52,13 +52,13 @@ const IndexPage: FC<PageProps<WeddingPageProps>> = (props) => {
   } = props;
 
   const venue = locations[0];
-  console.log(venue);
 
   return (
     <div className="p-4">
       <SEO title="The Wedding" />
       <SquigglyExoticCat className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="container max-w-4xl mx-auto">
+        {/* use 3 "squarish" photos in a single row */}
         {/* <div>
           photos
         </div> */}
