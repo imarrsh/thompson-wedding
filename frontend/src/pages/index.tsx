@@ -1,9 +1,20 @@
 import React, { FC, useState } from "react";
-import { PageProps, Link } from "gatsby";
+import { PageProps, Link, graphql } from "gatsby";
 import Image from "../components/image/image";
 import SEO from "../components/seo";
 import { useInterval } from '../hooks/useInterval';
 import { Heading, Paragraph } from "../components/typography";
+
+type IndexPageData = {
+  album: {
+    images: { 
+      asset: { 
+        originalFilename: string;
+        fluid: any;
+      }
+    }[]
+  }
+};
 
 // todo: grab from sanity 
 const WEDDING_DATE = new Date('2021-10-09T17:30:00.000-04:00');
@@ -38,7 +49,7 @@ function getDiffInDays(future: number, now: number): number {
   return Math.round((future - now) / (1000 * 3600 * 24));
 }
 
-const IndexPage: FC<PageProps<{}>> = () => {
+const IndexPage: FC<PageProps<IndexPageData>> = (props) => {
   
   const [ countdownInDays, setCountdownInDays ] = useState<number>(getDiffInDays(WEDDING_DATE.getTime(), Date.now()));
   
@@ -46,12 +57,19 @@ const IndexPage: FC<PageProps<{}>> = () => {
     setCountdownInDays(getDiffInDays(WEDDING_DATE.getTime(), Date.now()));
   }, 1000);
 
+  const {
+    data: {
+      album: { images }
+    }
+  } = props;
+
   return (
     <>
       <SEO title="Welcome" />
       <div className="container mx-auto px-0 sm:px-4">
         <article>
-          <Image fileName="KG1A9281.jpg"/>
+          {/* use 3 vertical photos in a single row instead */}
+          <Image fluidImg={images[0].asset.fluid} />
           <section className="max-w-3xl mx-auto py-8 px-4 sm:px-0">
             <Heading level={2} fontFamilyStyle="sans" size="m">
               {getMessageBasedOnDays(countdownInDays)}
@@ -60,7 +78,6 @@ const IndexPage: FC<PageProps<{}>> = () => {
               Welcome to our wedding website and thank you for choosing to celebrate our special day with us!
               Please explore our site to learn more about our wedding details, wedding party, registry information, local accommodations and things to do in and around Augusta, Ga.
             </Paragraph>
-            
             <Paragraph>
               We are so excited to celebrate this day with you and look forward to all the special memories we will make.
             </Paragraph>
@@ -73,3 +90,20 @@ const IndexPage: FC<PageProps<{}>> = () => {
 };
 
 export default IndexPage;
+
+export const query = graphql`
+  query IndexPageQuery {
+    album: sanityAlbum(name: { eq: "Index" }) { # grab index album {      
+      images {
+        asset {
+          fluid(maxWidth: 1200) { 
+            ...GatsbySanityImageFluid
+          }
+          fixed(width: 1000) {
+            ...GatsbySanityImageFixed
+          }
+        }
+      }
+    }
+  }
+`;
