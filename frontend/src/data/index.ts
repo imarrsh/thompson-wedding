@@ -1,1 +1,1 @@
-export { FeaturedPerson, GiftRegisry, Location } from './types';
+export { FeaturedPerson, GiftRegistry, Location } from './types';

@@ -52,12 +52,12 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
     }; 
   });
 
-  const openLightbox = React.useCallback((event, { index }) => {
+  const openLightBox = React.useCallback((event, { index }) => {
     setCurrentImageIndex(index);
     setIsViewerOpen(true);
   }, []);
 
-  const closeLightbox = () => {
+  const closeLightBox = () => {
     setCurrentImageIndex(0);
     setIsViewerOpen(false);
   }
@@ -65,10 +65,10 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
   return (
     <div className="container mx-auto p-4 px-8 max-w-6xl">
       <SEO title="Our Photos" />
-      <Gallery photos={galleryImages} direction="column" onClick={openLightbox}/>
+      <Gallery photos={galleryImages} direction="column" onClick={openLightBox}/>
       <ModalGateway>
         {isViewerOpen ? (
-          <Modal onClose={closeLightbox}>
+          <Modal onClose={closeLightBox}>
             <Carousel
               currentIndex={currentImageIndex}
               views={galleryImages.map(image => ({

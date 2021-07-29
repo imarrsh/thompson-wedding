@@ -53,7 +53,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
               By December 2014, they became inseparable. Since then Kaila and Marshall have shared many memories, countless laughs, and new beginnings together. In 2018 they moved to Atlanta, GA for Marshall’s job and soon after adopted two kittens, Oliver and Amelia. They began a new life together in Atlanta, Kaila started a new career, and they both survived a pandemic. 
             </Paragraph>
             <Paragraph>
-              After making it through quarantine Marshall decided it was time to get down on one knee. On September 11, 2020 at Yonah Mountain Vineyard, he popped the question and Kaila said “Yes”! Now, they are planning their wedding for October 9, 2021 and cannot wait to celebrate the occasion with all of their family and friends. 
+              After making it through quarantine, Marshall decided it was time to get down on one knee. On September 11, 2020 at Yonah Mountain Vineyard, he popped the question and Kaila said “Yes”! Now, they are planning their wedding for October 9, 2021 and cannot wait to celebrate the occasion with all of their family and friends. 
             </Paragraph>
             <Paragraph weight="font-bold">
               And the rest is history!

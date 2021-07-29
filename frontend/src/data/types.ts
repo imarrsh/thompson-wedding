@@ -1,4 +1,4 @@
-export type GiftRegisry = {
+export type GiftRegistry = {
   name: string;
   url: string;
   image?: any;

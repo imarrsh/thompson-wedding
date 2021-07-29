@@ -7,7 +7,7 @@ import { AccommodationSection } from "../components/accommodation-card/Accommoda
 import { Paragraph } from "../components/typography";
 import { Button } from "../components/buttons";
 
-interface AccomodationsPageProps {
+interface AccommodationsPageProps {
   accommodations: {
     nodes: Location[]
   }
@@ -23,7 +23,7 @@ const filterButtonsMap = [
 
 type FilterKeyword = '' | 'lodging' | 'restaurants' | 'poi' | 'bars_nightlife';
 
-const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
+const Accommodations = (props: PageProps<AccommodationsPageProps>) => {
   const {
     data: {
       accommodations: { nodes: accommodations }
@@ -45,7 +45,7 @@ const Accommodations = (props: PageProps<AccomodationsPageProps>) => {
         <Paragraph>
           We know some of you may come from afar and may not be familiar with all Augusta, Ga has to offer.
           We've arranged for block rates at some great hotels, but you're more than welcome to explore other offers in the area.
-          We also picked out some places that might pique your interest during your stay - from restuarants to escape rooms, Augusta
+          We also picked out some places that might pique your interest during your stay - from restaurants to escape rooms, Augusta
           has quite a few gems to offer.
         </Paragraph>
         <div className="flex">
@@ -92,7 +92,7 @@ const FilterButton = ({
   </Button>;
 
 export const query = graphql`
-query LocationAccomodationsQuery {
+query LocationAccommodationsQuery {
   accommodations: allSanityLocation(
     filter: { 
       category: {

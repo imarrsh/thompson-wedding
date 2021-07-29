@@ -3,14 +3,14 @@ import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
 import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
 import { Paragraph } from "../components/typography";
-import type { GiftRegisry } from "../data";
+import type { GiftRegistry } from "../data";
 import { Button } from "../components/buttons";
 import { Link } from "../components/navigation/Link";
 
 interface RsvpPageProps {
   registries: {
     // just borrowing this type
-    nodes: GiftRegisry[]
+    nodes: GiftRegistry[]
   }
 }
 
@@ -26,7 +26,7 @@ const Rsvp = (props: PageProps<RsvpPageProps>) => {
 
   return (
     <section className="p4">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-4xl">
         <SEO title="RSVP" />
         <SquigglyUpsidedownHeart className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
         <Paragraph textAlign="center">We're so excited for you to join us! Follow the link below to RSVP via the Wedding Wire RSVP page.</Paragraph>
