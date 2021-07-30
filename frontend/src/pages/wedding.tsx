@@ -54,7 +54,7 @@ const IndexPage: FC<PageProps<WeddingPageProps>> = (props) => {
   const venue = locations[0];
 
   return (
-    <div className="p-4">
+    <div className="p-4 mx-auto">
       <SEO title="The Wedding" />
       <SquigglyExoticCat className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="container max-w-4xl mx-auto">

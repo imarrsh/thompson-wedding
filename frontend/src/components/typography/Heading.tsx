@@ -18,6 +18,8 @@ export const textSize = {
   m: 'text-3xl',
   l: 'text-4xl',
   xl: 'md:text-6xl text-4xl',
+  xxl: 'md:text-8xl text-6xl',
+  xxxl: 'md:text-9xl text-8xl'
 };
 
 type SizeKey = keyof typeof textSize;

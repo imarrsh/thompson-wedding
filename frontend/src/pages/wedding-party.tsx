@@ -26,7 +26,7 @@ const WeddingParty: FC<PageProps<WeddingPartyPageProps>> = (props) => {
   } = props;
 
   return (
-    <>
+    <div className="mx-auto">
       <SEO title="Wedding Party" />
       <div className="container mx-auto py-4">
         <LeafyCrownFlat className="h-24 w-24 mx-auto text-sageGreen-600 fill-current"/>
@@ -43,7 +43,7 @@ const WeddingParty: FC<PageProps<WeddingPartyPageProps>> = (props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

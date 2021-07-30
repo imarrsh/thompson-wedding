@@ -38,7 +38,7 @@ const Accommodations = (props: PageProps<AccommodationsPageProps>) => {
   const [ activeFilter, setActiveFilter ] = React.useState<FilterKeyword>('');
 
   return (
-    <section className="p-4">
+    <section className="p-4 mx-auto">
       <SEO title="Accommodations" />
       <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="max-w-4xl mx-auto">

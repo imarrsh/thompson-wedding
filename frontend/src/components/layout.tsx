@@ -15,7 +15,7 @@ const Layout: FC = ({ children, ...rest }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow flex">{children}</main>
       <Footer />
     </div>
   );

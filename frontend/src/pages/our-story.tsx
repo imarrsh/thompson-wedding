@@ -25,7 +25,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
   } = props;
 
   return (
-    <>
+    <div className="mx-auto">
       <SEO title="Our Story" />
       <div className="p-4">
         <SquigglyUpsidedownHeart className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
@@ -61,7 +61,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
           </article>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

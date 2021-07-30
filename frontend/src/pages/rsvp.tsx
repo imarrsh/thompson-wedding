@@ -25,8 +25,8 @@ const Rsvp = (props: PageProps<RsvpPageProps>) => {
   const site = sites[0];
 
   return (
-    <section className="p4">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section className="p4 mx-auto">
+      <div className="container mx-auto px-4 max-w-4xl flex-grow">
         <SEO title="RSVP" />
         <SquigglyUpsidedownHeart className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
         <Paragraph textAlign="center">We're so excited for you to join us! Follow the link below to RSVP via the Wedding Wire RSVP page.</Paragraph>
