@@ -1,7 +1,16 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
+export type ImageAsset = {
+  asset: {
+    full?: IGatsbyImageData;
+    fixed?: IGatsbyImageData;
+  }
+}
+
 export type GiftRegistry = {
   name: string;
   url: string;
-  image?: any;
+  image?: ImageAsset;
 };
 
 export type FeaturedPerson = {
@@ -19,7 +28,7 @@ export type Location = {
   state: string;
   zipcode: string;
   category: string;
-  image: any;
+  image: ImageAsset;
   location: GeoPoint;
   url?: string;
   slug: {

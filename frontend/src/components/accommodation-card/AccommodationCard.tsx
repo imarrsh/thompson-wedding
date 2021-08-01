@@ -14,14 +14,14 @@ export const AccommodationCard: FC<AccommodationCardProps> = ({accommodation: a}
       <PageLink to={`/accommodations/${a.slug.current}`}>
         <figure>
           <Image 
-            fluidImg={a.image.asset.fluid} 
+            image={a.image.asset.full} 
             gatsbyImgProps={{
               style: {
                 minHeight: 250,
                 maxHeight: 250,
               },
               imgStyle: {
-                objectPosition: 'center bottom'
+                objectPosition: 'center bottom',
               }
             }}
           />

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Link } from "../navigation";
 import { Image } from '../image';
-import { GiftRegisry } from "../../data";
+import { GiftRegistry } from "../../data";
 import clsx from 'clsx';
 import { ArrowRightIcon } from '@heroicons/react/solid';
 
@@ -14,7 +14,7 @@ const ImageHiddenPaddingDiv = styled.div`
 `;
 
 type RegistryCardProps = {
-  registry: GiftRegisry;
+  registry: GiftRegistry;
 }
 
 export const RegistryCard: FC<RegistryCardProps> = ({registry}) => (
@@ -44,21 +44,20 @@ export const RegistryCard: FC<RegistryCardProps> = ({registry}) => (
           )}
         >
           {registry.image &&
-          <ImageHiddenPaddingDiv>
-            <Image fluidImg={registry.image.asset.fluid} gatsbyImgProps={{
-              style: {
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center'
-              },
-              imgStyle: {
-                position: 'static',
-                height: 'auto',
-                width: "auto"
-              }
-            }}/>
-          </ImageHiddenPaddingDiv>
+            <ImageHiddenPaddingDiv>
+              <Image image={registry.image.asset.full} gatsbyImgProps={{
+                style: {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                },
+                imgStyle: {
+                  position: 'static',
+                  height: 'auto'
+                }
+              }}/>
+            </ImageHiddenPaddingDiv>
           }
         </figure>
         <figcaption className="bg-sageGreen-800 text-sageGreen-200 py-6 px-8 group-hover:bg-sageGreen-700">

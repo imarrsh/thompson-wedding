@@ -119,9 +119,7 @@ query LocationAccommodationsQuery {
       category
       image {
         asset {
-          fluid(maxWidth: 1200) {
-            ...GatsbySanityImageFluid
-          }
+          full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }

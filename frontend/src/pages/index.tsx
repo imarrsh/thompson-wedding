@@ -4,13 +4,14 @@ import Image from "../components/image/image";
 import SEO from "../components/seo";
 import { useInterval } from '../hooks/useInterval';
 import { Heading, Paragraph } from "../components/typography";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type IndexPageData = {
   album: {
     images: { 
       asset: { 
         originalFilename: string;
-        fluid: any;
+        full: IGatsbyImageData;
       }
     }[]
   }
@@ -69,7 +70,7 @@ const IndexPage: FC<PageProps<IndexPageData>> = (props) => {
       <div className="container mx-auto px-0 sm:px-4">
         <article>
           {/* use 3 vertical photos in a single row instead */}
-          <Image fluidImg={images[0].asset.fluid} />
+          <Image image={images[0].asset.full} />
           <section className="max-w-3xl mx-auto py-8 px-4 sm:px-0">
             <Heading level={2} fontFamilyStyle="sans" size="m">
               {getMessageBasedOnDays(countdownInDays)}
@@ -96,12 +97,7 @@ export const query = graphql`
     album: sanityAlbum(name: { eq: "Index" }) { # grab index album {      
       images {
         asset {
-          fluid(maxWidth: 1200) { 
-            ...GatsbySanityImageFluid
-          }
-          fixed(width: 1000) {
-            ...GatsbySanityImageFixed
-          }
+          full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         }
       }
     }

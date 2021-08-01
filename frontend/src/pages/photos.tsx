@@ -2,24 +2,18 @@ import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
 import Gallery from "react-photo-gallery";
-import Carousel, { CommonProps, Modal, ModalGateway } from "react-images";
-import styled from "styled-components";
+import Carousel, { Modal, ModalGateway } from "react-images";
 import { CustomView } from '../components/photo-viewer'
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type Album = {
   name: string;
   description: string;
-  coverImage: { 
-    asset: { 
-      originalFilename: string;
-      fluid: any;
-    }
-  };
   images: { 
     asset: { 
       originalFilename: string;
-      fluid: any;
-      fixed: any;
+      full: IGatsbyImageData;
+      fixed: IGatsbyImageData;
     }
   }[];
 };
@@ -42,7 +36,10 @@ const Photos = (props: PageProps<AlbumPageProps>): JSX.Element => {
   const [ isViewerOpen, setIsViewerOpen ] = React.useState(false);
 
   const galleryImages = albums.nodes[0].images.map(image => {
-    const { height, width, src, srcSet } = image.asset.fixed;
+    const { height, width, images } = image.asset.fixed;
+    
+    // confused at "fallback" here 🙃 - but this is the only src and srcSet properties available
+    const { src, srcSet } = images.fallback!;
 
     return {
       height,
@@ -99,21 +96,10 @@ export const query = graphql`
       nodes {
         name,
         description,
-        coverImage {
-          asset {
-            fluid(maxWidth: 1200) { 
-              ...GatsbySanityImageFluid
-            }
-          }
-        },
         images {
           asset {
-            fluid(maxWidth: 1200) { 
-              ...GatsbySanityImageFluid
-            }
-            fixed(width: 1000) {
-              ...GatsbySanityImageFixed
-            }
+            full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+            fixed: gatsbyImageData(layout: FIXED, placeholder: BLURRED, width: 1000)
           }
         }
       } 

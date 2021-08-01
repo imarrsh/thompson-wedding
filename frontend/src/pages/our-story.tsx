@@ -4,13 +4,14 @@ import SEO from "../components/seo";
 import { Image } from '../components/image';
 import { SquigglyUpsidedownHeart } from "../components/icons/ornaments";
 import { Heading, Paragraph } from "../components/typography";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type OurStoryPageProps = {
   album: {
     images: { 
       asset: { 
         originalFilename: string;
-        fluid: any;
+        full: IGatsbyImageData;
       }
     }[]
   }
@@ -39,7 +40,7 @@ const OurStory: FC<PageProps<OurStoryPageProps>> = (props) => {
                   className="rounded-full overflow-hidden w-36 h-36 md:w-64 md:h-64 first:mr-2 shadow-md" 
                   key={image.asset.originalFilename}
                 >
-                  <Image fluidImg={image.asset.fluid} />
+                  <Image image={image.asset.full} />
                 </figure>
               )}
             </div>
@@ -72,9 +73,7 @@ query OurStoryQuery {
   album: sanityAlbum(name: {eq: "Our Story"}) {
     images {
       asset {
-        fluid(maxWidth: 1200) {
-          ...GatsbySanityImageFluid
-        }
+        full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
         originalFilename
       }
     }

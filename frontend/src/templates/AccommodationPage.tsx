@@ -46,7 +46,7 @@ const AccommodationPage: FC<AccommodationPageProps> = ({
         <article className="flex-1">
           <figure className="max-w-7xl rounded-md overflow-hidden mb-8 shadow-lg">
             <Image
-              fluidImg={location.image.asset.fluid}
+              image={location.image.asset.full}
               gatsbyImgProps={{
                 imgStyle: {
                   objectPosition: 'bottom center'
@@ -94,9 +94,7 @@ export const query = graphql`
       }
       image {
         asset {
-          fluid(maxWidth: 800) {
-            ...GatsbySanityImageFluid
-          }
+          full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 800)
         }
       }
     }

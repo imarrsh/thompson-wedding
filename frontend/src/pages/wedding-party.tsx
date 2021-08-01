@@ -67,9 +67,7 @@ export const query = graphql`
       biography
       image {
         asset {
-          fluid(maxWidth: 2000) {
-            ...GatsbySanityImageFluid
-          }
+          full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 2000)
         }
       }
     }
@@ -90,9 +88,7 @@ export const query = graphql`
       biography
       image {
         asset {
-          fluid(maxWidth: 2000) {
-            ...GatsbySanityImageFluid
-          }
+          full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, width: 2000)
         }
       }
     }

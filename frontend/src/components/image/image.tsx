@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img, { GatsbyImageOptionalProps } from "gatsby-image";
+import { GatsbyImage, GatsbyImageProps, IGatsbyImageData } from "gatsby-plugin-image";
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -19,8 +19,9 @@ type ImageProps = {
    */
   fileName?: string;
   fallback?: string;
-  fluidImg?: any; // todo: is there a ts type for sanity/gatsby images?
-  gatsbyImgProps?: GatsbyImageOptionalProps;
+  image?: IGatsbyImageData;
+  gatsbyImgProps?: Omit<GatsbyImageProps, 'alt' | 'image'>; // omit alt because our img wrapper will provide these
+  alt?: string;
 }
 
 /**
@@ -29,32 +30,29 @@ type ImageProps = {
 const Image: FC<ImageProps> = ({
   fileName = '',
   fallback = 'avatar.jpg',
-  fluidImg,
-  gatsbyImgProps = {}
+  image,
+  gatsbyImgProps = {},
+  alt= ""
 }) => {
   // if we already have a fluid img, perhaps from another query, return an Img with it.
-  if (fluidImg) {
-    return <Img fluid={fluidImg} {...gatsbyImgProps}/>;
+  if (image) {
+    return <GatsbyImage image={image} {...gatsbyImgProps} alt={alt || fileName}/>;
   }
 
-  const allImages = useStaticQuery(graphql`
-    query {
-      allFile {
-          nodes {
-            childImageSharp {
-              fluid(maxWidth: 2000) {
-                originalName
-                ...GatsbyImageSharpFluid
-              }
-          }
-          publicURL,
-          extension,
-          ext,
-          name
+  const allImages = useStaticQuery(graphql`{
+    allFile {
+      nodes {
+        childImageSharp {
+          gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
         }
+        publicURL
+        extension
+        ext
+        name
       }
-    }  
-  `);
+    }
+  }
+`);
 
   // naive shortcut to return an svg before attempting going thru images
   if (fileName.endsWith('.svg')) {
@@ -67,18 +65,16 @@ const Image: FC<ImageProps> = ({
 
   const images = allImages.allFile.nodes
     .filter((n: any) => n.childImageSharp !== null)
-    .map((n: any) => n.childImageSharp.fluid);
+    .map((n: any) => n.childImageSharp.gatsbyImageData);
 
-  let fluid = images.find((image: any) => image.originalName === fileName);
+  let imageToRender = images.find((image: any) => image.originalName === fileName);
 
-  // didnt find it, try the fallback
-  if (!fluid) {
-    fluid = images.find((image: any) => image.originalName === fallback);
+  // didn't find it, try the fallback
+  if (!imageToRender) {
+    imageToRender = images.find((image: any) => image.originalName === fallback);
   }
 
-  
-
-  return <Img fluid={fluid} {...gatsbyImgProps}/>;
+  return <GatsbyImage image={imageToRender} {...gatsbyImgProps} alt={alt || fileName}/>;
 };
 
 export default Image;

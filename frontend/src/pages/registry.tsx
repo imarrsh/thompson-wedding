@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import { graphql, PageProps } from "gatsby";
 import SEO from "../components/seo";
-import { GiftRegisry } from '../data';
+import { GiftRegistry } from '../data';
 import { RegistryCard } from "../components/registry-card";
 import { LeafyCrown } from "../components/icons/ornaments";
 import { Paragraph } from "../components/typography";
 
 interface RegistryPageProps {
   registries: {
-    nodes: GiftRegisry[]
+    nodes: GiftRegistry[]
   }
 }
 
@@ -59,9 +59,7 @@ export const query = graphql`
         name
         image {
           asset {
-            fluid(maxWidth: 500) {
-              ...GatsbySanityImageFluid
-            }
+            full: gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
