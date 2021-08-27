@@ -36,8 +36,10 @@ const Rsvp = (props: PageProps<RsvpPageProps>) => {
             <Button variant="fill">RSVP at {site.name}</Button>
           </Link>
         </div>
+        <Paragraph textAlign="center">
+          <em className="text-gray-500">If you are having trouble finding your name, make sure there are no trailing spaces in the text boxes and that the spelling matches the invitation. If you are still having trouble, reach out to one of us with your response and we'll help get you settled!</em>
+        </Paragraph>      
       </div>
-      
     </section>
   );
 };
