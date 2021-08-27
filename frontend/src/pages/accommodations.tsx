@@ -38,7 +38,7 @@ const Accommodations = (props: PageProps<AccommodationsPageProps>) => {
   const [ activeFilter, setActiveFilter ] = React.useState<FilterKeyword>('');
 
   return (
-    <section className="p-4 mx-auto">
+    <section className="p-4 mx-auto flex-grow">
       <SEO title="Accommodations" />
       <SquigglyLinePeakUp className="h-24 w-24 text-sageGreen-500 fill-current mx-auto"/>
       <div className="max-w-4xl mx-auto">
@@ -86,7 +86,7 @@ const FilterButton = ({
   <Button 
     variant={active ? "fill" : "outline"} 
     onClick={() => onClick()}
-    twClasses="mx-2"
+    twClasses="md:mx-2 mx-1"
   >
     {text}
   </Button>;
