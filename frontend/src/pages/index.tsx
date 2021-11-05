@@ -36,7 +36,7 @@ function getMessageBasedOnDays(value: number | null): string {
     } else if (value > 0) {
       message = `${message} in ${value} ${pluralize('day', value)}!`;
     } else if (value < 0 ) {
-      message = `Got married ${+value} ${pluralize('day', value)} ago!`;
+      message = `Got married ${-value} ${pluralize('day', value)} ago!`;
     }
   } else {
     message = `${message}!`;
